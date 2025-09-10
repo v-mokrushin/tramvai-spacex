@@ -11,6 +11,8 @@ import {
   ResourceSlot,
 } from '@tramvai/tokens-render';
 import { HeaderModule } from '~shared/header';
+import { HttpClientModule } from '@tramvai/module-http-client';
+import { ApiClientModule } from '~shared/api';
 
 createApp({
   name: 'spacex',
@@ -22,6 +24,8 @@ createApp({
     ServerModule,
     ErrorInterceptorModule,
     HeaderModule,
+    HttpClientModule,
+    ApiClientModule,
   ],
   providers: [
     {

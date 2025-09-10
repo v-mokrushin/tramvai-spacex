@@ -15,6 +15,7 @@
     "@tramvai/core": "^4.41.104",
     "@tramvai/module-common": "^4.41.104",
     "@tramvai/module-error-interceptor": "^4.41.104",
+    "@tramvai/module-http-client": "4.41.104",
     "@tramvai/module-render": "^4.41.104",
     "@tramvai/module-router": "^4.41.104",
     "@tramvai/module-seo": "^4.41.104",
