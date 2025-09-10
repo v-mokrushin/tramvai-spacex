@@ -1,0 +1,65 @@
+{
+  "name": "spacex",
+  "private": true,
+  "scripts": {
+    "start": "tramvai start spacex",
+    "build": "tramvai build spacex",
+    "preview": "tramvai start-prod spacex",
+    "analyze": "tramvai analyze spacex",
+    "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:integration": "playwright test"
+  },
+  "dependencies": {
+    "@tramvai/core": "^4.41.104",
+    "@tramvai/module-common": "^4.41.104",
+    "@tramvai/module-error-interceptor": "^4.41.104",
+    "@tramvai/module-render": "^4.41.104",
+    "@tramvai/module-router": "^4.41.104",
+    "@tramvai/module-seo": "^4.41.104",
+    "@tramvai/module-server": "^4.41.104",
+    "@tramvai/react": "^4.41.104",
+    "@tramvai/state": "^4.41.104",
+    "@tramvai/tokens-render": "^4.41.104",
+    "@tramvai/tokens-router": "^4.41.104",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tslib": "^2.8.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@testing-library/react": "^16.3.0",
+    "@tinkoff/eslint-config": "^5.0.1",
+    "@tinkoff/eslint-config-react": "^5.0.1",
+    "@tinkoff/eslint-plugin-tramvai": "^0.8.4",
+    "@tramvai/cli": "^4.41.104",
+    "@tramvai/test-react": "^4.41.104",
+    "@tramvai/test-unit": "^4.41.104",
+    "@tramvai/test-unit-jest": "^4.41.104",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.1.12",
+    "husky": "^4.3.8",
+    "jest": "^29.7.0",
+    "jest-circus": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^16.1.6",
+    "postcss-custom-media": "^11.0.6",
+    "postcss-custom-properties": "^14.0.6",
+    "postcss-modules-values-replace": "^4.2.2",
+    "postcss-nested": "^7.0.2",
+    "prettier-config-tinkoff": "^0.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

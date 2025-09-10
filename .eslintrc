@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "@tinkoff/eslint-config/app",
+    "@tinkoff/eslint-config-react",
+    "@tinkoff/eslint-config/jest",
+    "plugin:@tinkoff/tramvai/recommended",
+  ],
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "@typescript-eslint/naming-convention": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function",
+      },
+    ],
+  },
+}
