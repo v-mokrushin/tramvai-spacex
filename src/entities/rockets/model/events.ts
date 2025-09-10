@@ -1,6 +1,10 @@
 import { createEvent } from '@tramvai/state';
 import type { Rocket } from '~shared/types';
 
-export const rocketsIsLoading = createEvent('rocketsIsLoading');
+export const rocketsLoading = createEvent('rocketsIsLoading');
 
-export const rocketsLoaded = createEvent<{ items: Rocket[] }>('rocketsLoaded');
+export const rocketsLoadingFailed = createEvent('rocketsIsLoading');
+
+export const rocketsLoadingDone = createEvent<{ items: Rocket[] }>(
+  'rocketsLoadingDone'
+);

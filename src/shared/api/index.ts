@@ -8,6 +8,10 @@ import {
 
 export const API_CLIENT = createToken<HttpClient>('api_client');
 
+export const apiClientDependency = {
+  apiClient: API_CLIENT,
+};
+
 const API_BASE_URL_KEY = 'API_BASE_URL_KEY';
 
 const API_BASE_URL = 'https://api.spacexdata.com/v4/';
