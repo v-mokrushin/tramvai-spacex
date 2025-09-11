@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@tramvai/cli/schema.json",
   "projects": {
-    "spacex" : {
+    "spacex": {
       "name": "spacex",
       "root": "src",
       "type": "application",
