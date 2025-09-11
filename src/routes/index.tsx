@@ -1,18 +1,3 @@
-import { useNavigation } from '~shared/hooks';
-// import styles from './index.module.css';
+import { MainPage } from '~pages/main';
 
-export const IndexPage = () => {
-  const navigate = useNavigation();
-
-  const onClickHandler = () => navigate.toRockets();
-
-  return (
-    <main>
-      <button type="button" onClick={onClickHandler}>
-        Rockets
-      </button>
-    </main>
-  );
-};
-
-export default IndexPage;
+export default MainPage;

@@ -10,7 +10,7 @@ import {
   ResourceType,
   ResourceSlot,
 } from '@tramvai/tokens-render';
-import { HeaderModule } from '~shared/ui/header';
+import { HeaderModule } from '~shared/ui';
 import { HttpClientModule } from '@tramvai/module-http-client';
 import { ApiClientModule } from '~shared/api';
 
