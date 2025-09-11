@@ -5,6 +5,7 @@ import {
   HTTP_CLIENT_FACTORY,
   type HttpClient,
 } from '@tramvai/module-http-client';
+import { ASSETS_PREFIX_TOKEN } from '@tramvai/tokens-render';
 
 export const API_CLIENT = createToken<HttpClient>('api_client');
 
@@ -40,6 +41,10 @@ const API_BASE_URL = 'https://api.spacexdata.com/v4/';
           value: API_BASE_URL,
         },
       ],
+    }),
+    provide({
+      provide: ASSETS_PREFIX_TOKEN,
+      useValue: () => process.env.ASSETS_PREFIX ?? '',
     }),
   ],
 })
