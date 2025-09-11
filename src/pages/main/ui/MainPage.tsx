@@ -12,7 +12,7 @@ export const MainPage = () => {
 
   const onClickHandler = () => navigate.toRockets();
 
-  console.log(imageUrl);
+  //   console.log(imageUrl);
 
   return (
     <main>
@@ -21,9 +21,9 @@ export const MainPage = () => {
         style={{ backgroundImage: `url(${imageUrl})` }}
         className={styles.background}
       />
-      {/* <button type="button" onClick={onClickHandler}>
+      <button type="button" onClick={onClickHandler}>
         Rockets
-      </button> */}
+      </button>
     </main>
   );
 };
