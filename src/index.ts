@@ -10,10 +10,11 @@ import {
   ResourceType,
   ResourceSlot,
 } from '@tramvai/tokens-render';
-import { HeaderModule } from '~shared/ui';
+import { HeaderModule } from '~widgets/index';
 import { HttpClientModule } from '@tramvai/module-http-client';
 import { ApiClientModule } from '~shared/api';
 import '~shared/styles/global.css';
+import { RocketsStoreModule } from '~entities/rockets';
 
 createApp({
   name: 'spacex',
@@ -27,7 +28,7 @@ createApp({
     HeaderModule,
     HttpClientModule,
     ApiClientModule,
-    RenderModule,
+    RocketsStoreModule,
   ],
   providers: [
     {

@@ -12,6 +12,8 @@ export const loadRockets = declareAction({
   async fn() {
     this.dispatch(rocketsLoading());
 
+    localStorage.setItem(`loadRockets ${Math.random()}`, 'loadRockets');
+
     try {
       const response = await this.deps.apiClient.get<Rocket[]>('rockets');
 
@@ -21,4 +23,8 @@ export const loadRockets = declareAction({
     }
   },
   deps: apiClientDependency,
+  conditions: {
+    // dynamic: true,
+    // onlyServer: true,
+  },
 });

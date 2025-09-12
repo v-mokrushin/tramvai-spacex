@@ -8,12 +8,15 @@
   font-display: swap;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+html {
   font-family:
     'D-DIN',
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }

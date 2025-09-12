@@ -10,5 +10,6 @@ export const ROUTES = {
 };
 
 export const IMAGE_URLS = {
+  headerLogo: '/images/logo.png',
   mainPageBackground: '/images/background.jpg',
 } as const;

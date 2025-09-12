@@ -1,0 +1,19 @@
+.button {
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.label {
+  color: rgba(248, 248, 250, 0.9);
+  font-size: 14px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.label:hover {
+  color: white;
+}
