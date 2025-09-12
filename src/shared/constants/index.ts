@@ -8,3 +8,7 @@ export const LOADING_STATUSES = {
 export const ROUTES = {
   rockets: 'rockets',
 };
+
+export const IMAGE_URLS = {
+  mainPageBackground: '/images/background.jpg',
+} as const;
