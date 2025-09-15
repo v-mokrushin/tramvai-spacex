@@ -1,7 +1,12 @@
 .container {
+  width: 100%;
   display: flex;
   align-items: center;
   column-gap: 40px;
   position: fixed;
   padding: 24px 60px;
+}
+
+.container_withBackground {
+  background: black;
 }

@@ -6,7 +6,8 @@ export const LOADING_STATUSES = {
 } as const;
 
 export const ROUTES = {
-  rockets: 'rockets',
+  main: '/',
+  rockets: '/rockets',
 };
 
 export const IMAGE_URLS = {

@@ -1,12 +1,22 @@
 import { IMAGE_URLS, ROUTES } from '~shared/constants';
 import { getBackgroundImageStyle } from '~shared/utils';
+import classNames from 'classnames';
 import styles from './Header.module.css';
 import { Section } from './section/Section';
+import { useIsBackground } from './useIsBackground';
 
 export const Header = () => {
+  const isBackground = useIsBackground();
+
   return (
-    <header className={styles.container}>
+    <header
+      className={classNames(
+        styles.container,
+        isBackground && styles.container_withBackground
+      )}
+    >
       <div style={getBackgroundImageStyle(IMAGE_URLS.headerLogo)} />
+      <Section label="Home" url={ROUTES.main} />
       <Section label="Rockets" url={ROUTES.rockets} />
       <Section label="Launches" url="" />
       <Section label="Landpads" url="" />
