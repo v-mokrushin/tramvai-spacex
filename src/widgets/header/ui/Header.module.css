@@ -4,6 +4,7 @@
   align-items: center;
   column-gap: 40px;
   position: fixed;
+  z-index: 2;
   padding: 24px 60px;
 }
 
