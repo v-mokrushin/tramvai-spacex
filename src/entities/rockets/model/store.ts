@@ -4,7 +4,8 @@ import type { RocketsState } from './types';
 import { resetRockets, rocketsLoading, rocketsLoadingDone } from './events';
 
 const initialState: RocketsState = {
-  items: [],
+  rockets: [],
+  rocketsMap: {},
   loadingStatus: LOADING_STATUSES.idle,
 };
 
@@ -14,10 +15,21 @@ export const rocketsStore = createReducer('rockets', initialState)
     loadingStatus: LOADING_STATUSES.pending,
   }))
   .on(rocketsLoadingDone, (state, { items }) => {
-    return { ...state, items, loadingStatus: LOADING_STATUSES.done };
+    const rocketsMap = items.reduce<RocketsState['rocketsMap']>((map, item) => {
+      // eslint-disable-next-line no-param-reassign
+      map[item.id] = item;
+      return map;
+    }, {});
+
+    return {
+      ...state,
+      rockets: items,
+      rocketsMap,
+      loadingStatus: LOADING_STATUSES.done,
+    };
   })
   .on(resetRockets, (state) => ({
     ...state,
-    items: [],
+    rockets: [],
     loadingStatus: LOADING_STATUSES.idle,
   }));

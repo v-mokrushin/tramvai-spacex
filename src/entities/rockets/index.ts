@@ -1,7 +1,11 @@
 import { Module, provide } from '@tramvai/core';
 import { COMBINE_REDUCERS } from '@tramvai/module-common';
 import { loadRockets } from './actions/loadRockets';
-import { useSelectItems, useSelectLoadingStatus } from './model/selectors';
+import {
+  useSelectItems,
+  useSelectLoadingStatus,
+  useSelectRocket,
+} from './model/selectors';
 import { rocketsStore } from './model/store';
 import { resetRockets } from './model/events';
 
@@ -10,6 +14,7 @@ export const rocketsModel = {
   resetRockets,
   useSelectItems,
   useSelectLoadingStatus,
+  useSelectRocket,
 };
 
 @Module({

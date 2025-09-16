@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { rocketsModel } from '~entities/rockets';
 import { PageLayout } from '~shared/ui';
 import styles from './RocketsPage.module.css';
@@ -8,15 +7,6 @@ export const RocketsPage = () => {
   const items = rocketsModel.useSelectItems();
 
   const status = rocketsModel.useSelectLoadingStatus();
-
-  useEffect(() => {
-    // localStorage.setItem(`RocketsPage ${Math.random()}`, 'render');
-
-    return () => {
-      //   resetRockets();
-      //   localStorage.setItem(`RocketsPage ${Math.random()}`, 'unrender');
-    };
-  }, []);
 
   return (
     <PageLayout title="Rockets">
@@ -34,3 +24,12 @@ export const RocketsPage = () => {
 };
 
 RocketsPage.actions = [rocketsModel.loadRockets];
+
+//   useEffect(() => {
+//     // localStorage.setItem(`RocketsPage ${Math.random()}`, 'render');
+
+//     return () => {
+//       //   resetRockets();
+//       //   localStorage.setItem(`RocketsPage ${Math.random()}`, 'unrender');
+//     };
+//   }, []);
