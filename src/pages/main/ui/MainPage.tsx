@@ -1,5 +1,6 @@
 import { getBackgroundImageStyle } from '~shared/utils';
-import { IMAGE_URLS } from '~shared/constants';
+import { ANIMATIONS, IMAGE_URLS } from '~shared/constants';
+import classNames from 'classnames';
 import styles from './MainPage.module.css';
 
 export const MainPage = () => {
@@ -7,7 +8,7 @@ export const MainPage = () => {
     <main>
       <div
         style={getBackgroundImageStyle(IMAGE_URLS.mainPageBackground)}
-        className={styles.background}
+        className={classNames(styles.background, ANIMATIONS.fadeIn)}
       />
     </main>
   );

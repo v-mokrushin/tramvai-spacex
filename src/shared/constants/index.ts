@@ -14,3 +14,7 @@ export const IMAGE_URLS = {
   headerLogo: '/images/logo.png',
   mainPageBackground: '/images/background.jpg',
 } as const;
+
+export const ANIMATIONS = {
+  fadeIn: '.fadeIn',
+};

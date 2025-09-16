@@ -1,7 +1,7 @@
 import { createReducer } from '@tramvai/state';
 import { LOADING_STATUSES } from '~shared/constants';
 import type { RocketsState } from './types';
-import { rocketsLoading, rocketsLoadingDone } from './events';
+import { resetRockets, rocketsLoading, rocketsLoadingDone } from './events';
 
 const initialState: RocketsState = {
   items: [],
@@ -15,4 +15,9 @@ export const rocketsStore = createReducer('rockets', initialState)
   }))
   .on(rocketsLoadingDone, (state, { items }) => {
     return { ...state, items, loadingStatus: LOADING_STATUSES.done };
-  });
+  })
+  .on(resetRockets, (state) => ({
+    ...state,
+    items: [],
+    loadingStatus: LOADING_STATUSES.idle,
+  }));

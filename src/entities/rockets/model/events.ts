@@ -8,3 +8,5 @@ export const rocketsLoadingFailed = createEvent('rocketsIsLoading');
 export const rocketsLoadingDone = createEvent<{ items: Rocket[] }>(
   'rocketsLoadingDone'
 );
+
+export const resetRockets = createEvent('resetRockets');

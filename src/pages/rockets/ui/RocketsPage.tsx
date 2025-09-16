@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { rocketsModel } from '~entities/rockets';
 import styles from './RocketsPage.module.css';
+import { RocketCard } from './rocketCard/RocketCard';
 
 export const RocketsPage = () => {
   const items = rocketsModel.useSelectItems();
@@ -11,17 +12,20 @@ export const RocketsPage = () => {
     // localStorage.setItem(`RocketsPage ${Math.random()}`, 'render');
 
     return () => {
+      //   resetRockets();
       //   localStorage.setItem(`RocketsPage ${Math.random()}`, 'unrender');
     };
   }, []);
 
+  if (status === 'pending') {
+    return 'loading';
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-        {items.map(({ id, name, flickr_images }) => (
-          <div key={id} className={styles.box}>
-            <img src={flickr_images[1]} alt={name} />
-          </div>
+        {items.map((item) => (
+          <RocketCard key={item.id} rocket={item} />
         ))}
       </div>
     </div>
