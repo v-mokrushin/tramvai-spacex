@@ -20,8 +20,8 @@ export const RocketCard: FC<RocketCardProps> = ({ rocket }) => {
   };
 
   return (
-    <div
-      role="button"
+    <button
+      type="button"
       onClick={onClickHandler}
       className={classNames(styles.container, ANIMATIONS.fadeIn)}
     >
@@ -31,6 +31,6 @@ export const RocketCard: FC<RocketCardProps> = ({ rocket }) => {
         className={styles.backgroundImage}
       />
       <span className={styles.title}>{name}</span>
-    </div>
+    </button>
   );
 };
