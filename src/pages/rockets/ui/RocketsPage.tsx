@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { rocketsModel } from '~entities/rockets';
+import { PageLayout } from '~shared/ui';
 import styles from './RocketsPage.module.css';
 import { RocketCard } from './rocketCard/RocketCard';
 
@@ -18,7 +19,7 @@ export const RocketsPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <PageLayout title="Rockets">
       {status === 'pending' ? (
         <span>loading</span>
       ) : (
@@ -28,7 +29,7 @@ export const RocketsPage = () => {
           ))}
         </div>
       )}
-    </div>
+    </PageLayout>
   );
 };
 

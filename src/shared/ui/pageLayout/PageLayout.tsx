@@ -8,8 +8,10 @@ type PageLayoutProps = PropsWithChildren<{
 export const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
   return (
     <div className={styles.container}>
-      <h1>{title}</h1>
-      <div className={styles.contentContainer}>{children}</div>
+      <div className={styles.contentContainer}>
+        <h1>{title}</h1>
+        {children}
+      </div>
     </div>
   );
 };
