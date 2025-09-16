@@ -8,6 +8,7 @@ export const LOADING_STATUSES = {
 export const ROUTES = {
   main: '/',
   rockets: '/rockets',
+  rocket: '/rocket',
 };
 
 export const IMAGE_URLS = {

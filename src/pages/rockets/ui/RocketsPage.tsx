@@ -17,17 +17,17 @@ export const RocketsPage = () => {
     };
   }, []);
 
-  if (status === 'pending') {
-    return 'loading';
-  }
-
   return (
     <div className={styles.container}>
-      <div className={styles.innerContainer}>
-        {items.map((item) => (
-          <RocketCard key={item.id} rocket={item} />
-        ))}
-      </div>
+      {status === 'pending' ? (
+        <span>loading</span>
+      ) : (
+        <div className={styles.innerContainer}>
+          {items.map((item) => (
+            <RocketCard key={item.id} rocket={item} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

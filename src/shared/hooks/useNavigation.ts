@@ -1,5 +1,6 @@
 import { useNavigate } from '@tramvai/module-router';
 import { ROUTES } from '~shared/constants';
+import type { Rocket } from '~shared/types';
 
 export const useNavigation = () => {
   const navigate = useNavigate();
@@ -8,5 +9,9 @@ export const useNavigation = () => {
     navigate(ROUTES.rockets);
   };
 
-  return { toRockets };
+  const toRocket = (rocketId: Rocket['id']) => {
+    navigate(`${ROUTES.rocket}/${rocketId}`);
+  };
+
+  return { toRockets, toRocket };
 };
