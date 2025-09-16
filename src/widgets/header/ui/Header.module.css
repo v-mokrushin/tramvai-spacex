@@ -11,3 +11,13 @@
 .container_withBackground {
   background: black;
 }
+
+.logo {
+  width: 160px;
+  height: auto;
+  aspect-ratio: 5/1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 5px;
+}

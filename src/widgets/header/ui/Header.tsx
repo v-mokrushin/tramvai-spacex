@@ -15,7 +15,10 @@ export const Header = () => {
         isBackground && styles.container_withBackground
       )}
     >
-      <div style={getBackgroundImageStyle(IMAGE_URLS.headerLogo)} />
+      <div
+        style={getBackgroundImageStyle(IMAGE_URLS.headerLogo)}
+        className={styles.logo}
+      />
       <Section label="Home" url={ROUTES.main} />
       <Section label="Rockets" url={ROUTES.rockets} />
       <Section label="Launches" url="" />
