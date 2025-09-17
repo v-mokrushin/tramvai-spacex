@@ -18,7 +18,20 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* animation: grow 250s linear; */
 }
+
+/* @keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
 
 .textIntroContainer {
   display: flex;
