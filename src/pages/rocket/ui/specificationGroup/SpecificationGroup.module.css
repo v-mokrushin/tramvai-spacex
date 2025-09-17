@@ -25,3 +25,9 @@
   height: 1px;
   background-color: rgba(49, 46, 46, 0.644);
 }
+
+.label {
+  display: block;
+  margin-right: 15px;
+  line-height: 20px;
+}

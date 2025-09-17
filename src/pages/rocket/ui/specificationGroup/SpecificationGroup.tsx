@@ -18,7 +18,7 @@ export const SpecificationsGroup: FC<SpecificationsGroupProps> = ({
         {specs.map(({ key, label, value }) => (
           <>
             <div key={key} className={styles.specContainer}>
-              <span>{label}</span>
+              <span className={styles.label}>{label}</span>
               <span>{value}</span>
             </div>
             <div className={styles.rowDivider} />

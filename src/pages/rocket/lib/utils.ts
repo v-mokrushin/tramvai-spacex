@@ -2,7 +2,7 @@ import type { Rocket } from '~shared/types';
 import { getFormattedNumberWithSpaces } from '~shared/utils';
 import type { SpecificationGroupData } from './types';
 
-export const getKeyMetrics = (rocket: Rocket): SpecificationGroupData => {
+const getGeneralSpecs = (rocket: Rocket): SpecificationGroupData => {
   const metics: SpecificationGroupData = [
     { key: 'name', label: 'Name', value: rocket.name },
     {
@@ -36,22 +36,7 @@ export const getKeyMetrics = (rocket: Rocket): SpecificationGroupData => {
   return metics;
 };
 
-// export const getPayloadWeightsMetrics = (rocket: Rocket): SpecificationGroupData => {
-//   const metics: SpecificationGroupData = [
-//     { key: '', label: '', value: rocket.payload_weights },
-//     { key: '', label: '', value: rocket. },
-//     { key: '', label: '', value: rocket. },
-//     { key: '', label: '', value: rocket. },
-//     { key: '', label: '', value: rocket. },
-
-//   ];
-
-//   return metics;
-// };
-
-export const getEnginesMetrics = ({
-  engines,
-}: Rocket): SpecificationGroupData => {
+const getEnginesSpecs = ({ engines }: Rocket): SpecificationGroupData => {
   const metics: SpecificationGroupData = [
     { key: 'number', label: 'Number', value: engines.number },
     { key: 'layout', label: 'Layout', value: engines.layout },
@@ -97,22 +82,71 @@ export const getEnginesMetrics = ({
       label: 'Thrust (vacuum)',
       value: `${getFormattedNumberWithSpaces(engines.thrust_vacuum.kN)} kN / ${getFormattedNumberWithSpaces(engines.thrust_vacuum.lbf)} lbf`,
     },
-    // {
-    //   key: 'thrust_vacuum',
-    //   label: 'Thrust (vacuum)',
-    //   value: engines.thrust_vacuum,
-    // },
-    // {
-    //   key: '',
-    //   label: ')',
-    //   value: engines.,
-    // },
-    // {
-    //   key: '',
-    //   label: ')',
-    //   value: engines.,
-    // },
   ];
 
   return metics.filter(({ value }) => Boolean(value));
+};
+
+const getDesignSpecs = ({
+  mass,
+  diameter,
+  height,
+  stages,
+  boosters,
+  landing_legs,
+}: Rocket): SpecificationGroupData => {
+  const metics: SpecificationGroupData = [
+    {
+      key: 'mass',
+      label: 'Mass',
+      value: `${getFormattedNumberWithSpaces(mass.kg)} kg / ${getFormattedNumberWithSpaces(mass.lb)} lb`,
+    },
+    {
+      key: 'diameter',
+      label: 'Diameter',
+      value: `${diameter.meters} m / ${diameter.feet} ft`,
+    },
+    {
+      key: 'height',
+      label: 'Height',
+      value: `${height.meters} m / ${height.feet} ft`,
+    },
+    { key: 'stages', label: 'Stages', value: stages },
+    { key: 'boosters', label: 'Boosters', value: `${boosters || 'no'}` },
+    {
+      key: 'landing_legs',
+      label: 'Landing legs',
+      value: landing_legs.number
+        ? `${landing_legs.number} / ${landing_legs.material}`
+        : `no`,
+    },
+  ];
+
+  return metics;
+};
+
+const getPayloadWeightsSpecs = ({
+  payload_weights,
+}: Rocket): SpecificationGroupData => {
+  const metics: SpecificationGroupData = payload_weights.map(
+    ({ id, name, kg, lb }) => ({
+      key: id,
+      label: name,
+      value: `${getFormattedNumberWithSpaces(kg)} kg / ${getFormattedNumberWithSpaces(lb)} lb`,
+    })
+  );
+
+  return metics;
+};
+
+export const getSpecs = (rocket: Rocket) => {
+  const general = getGeneralSpecs(rocket);
+
+  const design = getDesignSpecs(rocket);
+
+  const engines = getEnginesSpecs(rocket);
+
+  const payloadWeights = getPayloadWeightsSpecs(rocket);
+
+  return { general, design, engines, payloadWeights };
 };
