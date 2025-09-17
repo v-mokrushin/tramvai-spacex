@@ -1,14 +1,13 @@
 import { useRoute } from '@tramvai/module-router';
 import { rocketsModel } from '~entities/rockets';
 import { PageLayout, PageLoader } from '~shared/ui';
-import { useLoadingStatus } from './useLoadingStatus';
 
 export const RocketPage = () => {
   const { id } = useRoute().params;
 
-  const rocket = rocketsModel.useSelectRocket(id);
+  const rocket = rocketsModel.useRocketById(id);
 
-  const { isPending, isDone } = useLoadingStatus();
+  const { isPending, isDone } = rocketsModel.useLoadingStatus();
 
   if (isPending) {
     return <PageLoader />;

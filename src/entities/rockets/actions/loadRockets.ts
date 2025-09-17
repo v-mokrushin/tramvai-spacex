@@ -17,7 +17,7 @@ export const loadRockets = declareAction({
     this.dispatch(rocketsLoading());
 
     try {
-      //   await wait(1500);
+      await wait(1500);
       const response = await this.deps.apiClient.get<Rocket[]>('rockets');
 
       log.error(`loadRockets getIsClient=${getIsClient()}`);

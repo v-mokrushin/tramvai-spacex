@@ -1,24 +1,24 @@
 import { rocketsModel } from '~entities/rockets';
-import { PageLayout } from '~shared/ui';
+import { PageLayout, PageLoader } from '~shared/ui';
 import styles from './RocketsPage.module.css';
 import { RocketCard } from './rocketCard/RocketCard';
 
 export const RocketsPage = () => {
-  const items = rocketsModel.useSelectItems();
+  const items = rocketsModel.useRockets();
 
-  const status = rocketsModel.useSelectLoadingStatus();
+  const { isPending } = rocketsModel.useLoadingStatus();
+
+  if (isPending) {
+    return <PageLoader />;
+  }
 
   return (
     <PageLayout title="Rockets">
-      {status === 'pending' ? (
-        <span>loading</span>
-      ) : (
-        <div className={styles.innerContainer}>
-          {items.map((item) => (
-            <RocketCard key={item.id} rocket={item} />
-          ))}
-        </div>
-      )}
+      <div className={styles.innerContainer}>
+        {items.map((item) => (
+          <RocketCard key={item.id} rocket={item} />
+        ))}
+      </div>
     </PageLayout>
   );
 };

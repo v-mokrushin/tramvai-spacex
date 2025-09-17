@@ -1,12 +1,11 @@
-import { useStoreSelector } from '@tramvai/state';
 import type { Rocket } from '~shared/types';
-import { rocketsStore } from './store';
+import type { RocketsState } from './types';
 
-export const useSelectItems = () =>
-  useStoreSelector(rocketsStore, (state) => state.rockets);
+export const selectRockets = (state: RocketsState) => state.rockets;
 
-export const useSelectLoadingStatus = () =>
-  useStoreSelector(rocketsStore, (state) => state.loadingStatus);
+export const selectRocketById =
+  (rocketId: Rocket['id']) =>
+  (state: RocketsState): Rocket | undefined =>
+    state.rocketsMap[rocketId];
 
-export const useSelectRocket = (rocketId: Rocket['id']): Rocket | undefined =>
-  useStoreSelector(rocketsStore, (state) => state.rocketsMap[rocketId]);
+export const selectLoadingStatus = (state: RocketsState) => state.loadingStatus;
