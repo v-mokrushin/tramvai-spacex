@@ -18,3 +18,9 @@ export const getLoadingStatusDefinition = (loadingStatus: LoadingStatus) => ({
   isDone: loadingStatus === LOADING_STATUSES.done,
   isFailed: loadingStatus === LOADING_STATUSES.failed,
 });
+
+export const getFormattedNumberWithSpaces = (number: number) => {
+  const roundedAmount = Math.round(number);
+
+  return roundedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+};
