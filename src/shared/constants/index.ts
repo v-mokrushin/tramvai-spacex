@@ -1,3 +1,5 @@
+import styles from '../styles/animations.css';
+
 export const LOADING_STATUSES = {
   idle: 'idle',
   pending: 'pending',
@@ -17,5 +19,5 @@ export const IMAGE_URLS = {
 } as const;
 
 export const ANIMATIONS = {
-  fadeIn: '.fadeIn',
+  fadeIn: styles.fadeIn,
 };

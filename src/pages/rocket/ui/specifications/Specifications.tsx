@@ -1,14 +1,10 @@
 import type { FC } from 'react';
-import type { Rocket } from '~shared/types';
+import type { WithRocketProp } from '~shared/types';
 import { SpecificationsGroup } from '../specificationGroup/SpecificationGroup';
 import { getSpecs } from '../../lib/utils';
 import styles from './Specifications.module.css';
 
-type SpecificationsProps = {
-  rocket: Rocket;
-};
-
-export const Specifications: FC<SpecificationsProps> = ({ rocket }) => {
+export const Specifications: FC<WithRocketProp> = ({ rocket }) => {
   const specs = getSpecs(rocket);
 
   return (

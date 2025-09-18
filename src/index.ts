@@ -14,7 +14,7 @@ import { HeaderModule } from '~widgets/index';
 import { HttpClientModule } from '@tramvai/module-http-client';
 import { ApiClientModule } from '~shared/api';
 import '~shared/styles/global.css';
-import '~shared/styles/animations.global.css';
+import '~shared/styles/animations.css';
 import { RocketsStoreModule } from '~entities/rockets';
 
 createApp({

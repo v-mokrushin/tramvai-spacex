@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import type { Rocket } from '~shared/types';
 
 import classNames from 'classnames';
-import { ANIMATIONS } from '~shared/constants';
 import { useNavigation } from '~shared/hooks';
 import styles from './RocketCard.module.css';
 
@@ -23,7 +22,7 @@ export const RocketCard: FC<RocketCardProps> = ({ rocket }) => {
     <button
       type="button"
       onClick={onClickHandler}
-      className={classNames(styles.container, ANIMATIONS.fadeIn)}
+      className={classNames(styles.container)}
     >
       <img
         src={flickr_images[1]}

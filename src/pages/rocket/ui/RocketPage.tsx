@@ -1,6 +1,7 @@
 import { useRoute } from '@tramvai/module-router';
 import { rocketsModel } from '~entities/rockets';
 import { PageLayout, PageLoader } from '~shared/ui';
+import { ANIMATIONS } from '~shared/constants';
 import { Specifications } from './specifications/Specifications';
 
 export const RocketPage = () => {
@@ -19,7 +20,13 @@ export const RocketPage = () => {
   }
 
   return (
-    <PageLayout title={`${rocket.name}`}>
+    <PageLayout title={`${rocket.name}`} className={ANIMATIONS.fadeIn}>
+      <span>{rocket.description}</span>
+      <div>
+        {rocket.flickr_images.map((url) => (
+          <img key={url} src={url} />
+        ))}
+      </div>
       <Specifications rocket={rocket} />
     </PageLayout>
   );

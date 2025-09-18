@@ -1,5 +1,6 @@
 import { rocketsModel } from '~entities/rockets';
 import { PageLayout, PageLoader } from '~shared/ui';
+import { ANIMATIONS } from '~shared/constants';
 import styles from './RocketsPage.module.css';
 import { RocketCard } from './rocketCard/RocketCard';
 
@@ -13,7 +14,7 @@ export const RocketsPage = () => {
   }
 
   return (
-    <PageLayout title="Rockets">
+    <PageLayout title="Rockets" className={ANIMATIONS.fadeIn}>
       <div className={styles.innerContainer}>
         {items.map((item) => (
           <RocketCard key={item.id} rocket={item} />

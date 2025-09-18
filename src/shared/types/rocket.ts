@@ -63,6 +63,8 @@ export type Rocket = {
   description: string;
 };
 
+export type WithRocketProp<T extends object = object> = T & { rocket: Rocket };
+
 type Length = {
   meters: number;
   feet: number;
