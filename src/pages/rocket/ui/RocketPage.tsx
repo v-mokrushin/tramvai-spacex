@@ -1,7 +1,7 @@
 import { useRoute } from '@tramvai/module-router';
 import { rocketsModel } from '~entities/rockets';
 import { PageLayout, PageLoader } from '~shared/ui';
-import { ANIMATIONS } from '~shared/constants';
+import { animations } from '~shared/constants';
 import { Specifications } from './specifications/Specifications';
 import { Images } from './images/Images';
 import styles from './RocketPage.module.css';
@@ -22,7 +22,7 @@ export const RocketPage = () => {
   }
 
   return (
-    <PageLayout title={`${rocket.name}`} className={ANIMATIONS.fadeIn}>
+    <PageLayout title={`${rocket.name}`} className={animations.FADE_IN}>
       <div className={styles.container}>
         <span className={styles.description}>{rocket.description}</span>
         <Images rocket={rocket} />

@@ -1,20 +1,20 @@
 import { useNavigate } from '@tramvai/module-router';
-import { ROUTES } from '~shared/constants';
+import { routes } from '~shared/constants';
 import type { Rocket } from '~shared/types';
 
 export const useNavigation = () => {
   const navigate = useNavigate();
 
   const toRockets = () => {
-    navigate(ROUTES.rockets);
+    navigate(routes.ROCKETS);
   };
 
   const toRocket = (rocketId: Rocket['id']) => {
-    navigate(`${ROUTES.rocket}/${rocketId}`);
+    navigate(`${routes.ROCKET}/${rocketId}`);
   };
 
   const toLaunches = () => {
-    navigate(ROUTES.launches);
+    navigate(routes.LAUNCHES);
   };
 
   return { toRockets, toRocket, toLaunches };

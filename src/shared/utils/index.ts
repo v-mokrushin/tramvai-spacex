@@ -1,4 +1,4 @@
-import { LOADING_STATUSES } from '~shared/constants';
+import { loadingStatuses } from '~shared/constants';
 import type { LoadingStatus } from '~shared/types';
 
 export const getBackgroundImageStyle = (url: string) => ({
@@ -13,10 +13,10 @@ export const wait = (delay = 1500) =>
   });
 
 export const getLoadingStatusDefinition = (loadingStatus: LoadingStatus) => ({
-  isIdle: loadingStatus === LOADING_STATUSES.idle,
-  isPending: loadingStatus === LOADING_STATUSES.pending,
-  isDone: loadingStatus === LOADING_STATUSES.done,
-  isFailed: loadingStatus === LOADING_STATUSES.failed,
+  isIdle: loadingStatus === loadingStatus.idle,
+  isPending: loadingStatus === loadingStatus.pending,
+  isDone: loadingStatus === loadingStatus.done,
+  isFailed: loadingStatus === loadingStatus.failed,
 });
 
 export const getFormattedNumberWithSpaces = (number: number) => {

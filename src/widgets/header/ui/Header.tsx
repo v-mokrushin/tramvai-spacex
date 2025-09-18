@@ -1,4 +1,4 @@
-import { IMAGE_URLS, ROUTES } from '~shared/constants';
+import { imagePaths, routes } from '~shared/constants';
 import { getBackgroundImageStyle } from '~shared/utils';
 import classNames from 'classnames';
 import styles from './Header.module.css';
@@ -16,13 +16,12 @@ export const Header = () => {
       )}
     >
       <div
-        style={getBackgroundImageStyle(IMAGE_URLS.headerLogo)}
+        style={getBackgroundImageStyle(imagePaths.HEADER_LOGO)}
         className={styles.logo}
       />
-      <Section label="Home" url={ROUTES.main} />
-      <Section label="Rockets" url={ROUTES.rockets} />
-      <Section label="Launches" url={ROUTES.launches} />
-      <Section label="Landpads" url="" />
+      <Section label="Home" url={routes.MAIN} />
+      <Section label="Rockets" url={routes.ROCKETS} />
+      <Section label="Launches" url={routes.LAUNCHES} />
     </header>
   );
 };

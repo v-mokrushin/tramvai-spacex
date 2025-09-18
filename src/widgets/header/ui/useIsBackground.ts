@@ -1,5 +1,5 @@
 import { useRoute } from '@tramvai/module-router';
-import { ROUTES } from '~shared/constants';
+import { routes } from '~shared/constants';
 // import createLogger from '@tinkoff/logger';
 // import { getIsClient } from '~shared/utils';
 
@@ -10,5 +10,5 @@ export const useIsBackground = () => {
 
   //   log.error(`useIsBackground ${getIsClient()}`, path);
 
-  return path !== ROUTES.main;
+  return path !== routes.MAIN;
 };
