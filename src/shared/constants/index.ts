@@ -11,7 +11,8 @@ export const ROUTES = {
   main: '/',
   rockets: '/rockets',
   rocket: '/rocket',
-};
+  launches: '/launches',
+} as const;
 
 export const IMAGE_URLS = {
   headerLogo: '/images/logo.png',
@@ -20,4 +21,4 @@ export const IMAGE_URLS = {
 
 export const ANIMATIONS = {
   fadeIn: styles.fadeIn,
-};
+} as const;

@@ -21,7 +21,7 @@ export const Header = () => {
       />
       <Section label="Home" url={ROUTES.main} />
       <Section label="Rockets" url={ROUTES.rockets} />
-      <Section label="Launches" url="" />
+      <Section label="Launches" url={ROUTES.launches} />
       <Section label="Landpads" url="" />
     </header>
   );

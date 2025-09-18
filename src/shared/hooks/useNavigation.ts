@@ -13,5 +13,9 @@ export const useNavigation = () => {
     navigate(`${ROUTES.rocket}/${rocketId}`);
   };
 
-  return { toRockets, toRocket };
+  const toLaunches = () => {
+    navigate(ROUTES.launches);
+  };
+
+  return { toRockets, toRocket, toLaunches };
 };
