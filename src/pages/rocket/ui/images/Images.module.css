@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.otherImagesContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mainImage {
+  width: 700px;
+  height: auto;
+  aspect-ratio: 1.5/1;
+  border-radius: 4px;
+}
+
+.otherImage {
+  width: 343px;
+  height: auto;
+  aspect-ratio: 1.5/1;
+  border-radius: 4px;
+}

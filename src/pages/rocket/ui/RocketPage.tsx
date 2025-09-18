@@ -3,13 +3,15 @@ import { rocketsModel } from '~entities/rockets';
 import { PageLayout, PageLoader } from '~shared/ui';
 import { ANIMATIONS } from '~shared/constants';
 import { Specifications } from './specifications/Specifications';
+import { Images } from './images/Images';
+import styles from './RocketPage.module.css';
 
 export const RocketPage = () => {
   const { id } = useRoute().params;
 
   const rocket = rocketsModel.useRocketById(id);
 
-  const { isIdle, isPending, isDone } = rocketsModel.useLoadingStatus();
+  const { isIdle, isPending } = rocketsModel.useLoadingStatus();
 
   if (isPending) {
     return <PageLoader />;
@@ -21,13 +23,11 @@ export const RocketPage = () => {
 
   return (
     <PageLayout title={`${rocket.name}`} className={ANIMATIONS.fadeIn}>
-      <span>{rocket.description}</span>
-      <div>
-        {rocket.flickr_images.map((url) => (
-          <img key={url} src={url} />
-        ))}
+      <div className={styles.container}>
+        <span className={styles.description}>{rocket.description}</span>
+        <Images rocket={rocket} />
+        <Specifications rocket={rocket} />
       </div>
-      <Specifications rocket={rocket} />
     </PageLayout>
   );
 };
