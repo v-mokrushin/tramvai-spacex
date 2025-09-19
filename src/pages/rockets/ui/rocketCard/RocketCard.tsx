@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import { useNavigation } from '~shared/hooks';
 import { WrappingButton } from '~shared/ui';
 import styles from './RocketCard.module.css';
-
-const IMAGE_INDEX = 1;
+import { getImageUrl } from './utils';
 
 type RocketCardProps = {
   rocket: Rocket;
@@ -17,6 +16,8 @@ export const RocketCard: FC<RocketCardProps> = ({ rocket }) => {
 
   const { id, name, flickr_images } = rocket;
 
+  const imageSrc = getImageUrl(flickr_images);
+
   const onClickHandler = () => {
     navigate.toRocket(id);
   };
@@ -26,11 +27,7 @@ export const RocketCard: FC<RocketCardProps> = ({ rocket }) => {
       onClick={onClickHandler}
       className={classNames(styles.container)}
     >
-      <img
-        src={flickr_images[IMAGE_INDEX]}
-        alt={name}
-        className={styles.backgroundImage}
-      />
+      <img src={imageSrc} alt={name} className={styles.backgroundImage} />
       <span className={styles.title}>{name}</span>
     </WrappingButton>
   );
