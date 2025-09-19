@@ -1,6 +1,7 @@
 import { getBackgroundImageStyle } from '~shared/utils';
 import { animations, imagePaths } from '~shared/constants';
 import classNames from 'classnames';
+import { mainPageLocales } from '~shared/locales';
 import styles from './MainPage.module.css';
 
 export const MainPage = () => {
@@ -11,10 +12,8 @@ export const MainPage = () => {
         className={classNames(styles.background, animations.FADE_IN)}
       />
       <div className={styles.textIntroContainer}>
-        <span className={styles.slogan}>Making Humanity Multiplanetary</span>
-        <span className={styles.subtitle}>
-          Pioneering the future of space exploration and interplanetary life
-        </span>
+        <span className={styles.slogan}>{mainPageLocales.SLOGAN}</span>
+        <span className={styles.subtitle}>{mainPageLocales.SUBTITLE}</span>
       </div>
     </main>
   );

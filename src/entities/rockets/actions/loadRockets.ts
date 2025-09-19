@@ -18,6 +18,7 @@ export const loadRockets = declareAction({
 
     try {
       //   await wait(1500);
+      //   const response = await this.deps.apiClient.get<Rocket[]>('rockets', {p});
       const response = await this.deps.apiClient.get<Rocket[]>('rockets');
 
       log.error(`loadRockets getIsClient=${getIsClient()}`);

@@ -1,4 +1,4 @@
-export type SpecificationItem = {
+type SpecificationItem = {
   key: string;
   label: string;
   value: string | number;

@@ -139,7 +139,7 @@ const getPayloadWeightsSpecs = ({
   return metics;
 };
 
-export const getSpecs = (rocket: Rocket) => {
+export const getSpecifications = (rocket: Rocket) => {
   const general = getGeneralSpecs(rocket);
 
   const design = getDesignSpecs(rocket);

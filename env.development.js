@@ -4,6 +4,5 @@ module.exports = {
   APP_ID: 'spacex',
   ASSETS_PREFIX: 'static',
   //   LOG_LEVEL: 'info',
-  LOG_LEVEL: 'error',
-  LOG_ENABLE: 'false',
+  //   LOG_LEVEL: 'error',
 };

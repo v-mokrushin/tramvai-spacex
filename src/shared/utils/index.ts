@@ -13,10 +13,10 @@ export const wait = (delay = 1500) =>
   });
 
 export const getLoadingStatusDefinition = (loadingStatus: LoadingStatus) => ({
-  isIdle: loadingStatus === loadingStatus.idle,
-  isPending: loadingStatus === loadingStatus.pending,
-  isDone: loadingStatus === loadingStatus.done,
-  isFailed: loadingStatus === loadingStatus.failed,
+  isIdle: loadingStatus === loadingStatuses.IDLE,
+  isPending: loadingStatus === loadingStatuses.PENDING,
+  isDone: loadingStatus === loadingStatuses.DONE,
+  isFailed: loadingStatus === loadingStatuses.FAILED,
 });
 
 export const getFormattedNumberWithSpaces = (number: number) => {
