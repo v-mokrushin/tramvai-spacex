@@ -12,15 +12,11 @@ export const PageLayout: FC<PageLayoutProps> = ({
   title,
   children,
   className,
-}) => {
-  return (
-    <div
-      className={classNames(styles.container, animations.FADE_IN, className)}
-    >
-      <div className={styles.contentContainer}>
-        <h1>{title}</h1>
-        {children}
-      </div>
+}) => (
+  <div className={classNames(styles.container, animations.FADE_IN, className)}>
+    <div className={styles.contentContainer}>
+      <h1>{title}</h1>
+      {children}
     </div>
-  );
-};
+  </div>
+);

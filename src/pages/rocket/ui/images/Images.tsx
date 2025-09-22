@@ -1,6 +1,7 @@
-import { type FC } from 'react';
+import { useState, type FC } from 'react';
 import type { WithRocketProp } from '~shared/types';
 
+import { ImageViewer } from '~shared/ui';
 import styles from './Images.module.css';
 import { getImageUrls } from './utils';
 
@@ -11,23 +12,37 @@ export const Images: FC<WithRocketProp> = ({ rocket }) => {
 
   const rocketName = rocket.name;
 
+  const [isOpen, setIsOpen] = useState(true);
+
   if (!isImages) {
     return null;
   }
 
   return (
-    <div className={styles.container}>
-      <img src={mainImageUrl} className={styles.mainImage} alt={rocketName} />
-      <div className={styles.otherImagesContainer}>
-        {otherImageUrls.map((url) => (
-          <img
-            key={url}
-            src={url}
-            className={styles.otherImage}
-            alt={rocketName}
-          />
-        ))}
+    <>
+      <ImageViewer
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        imageUrl={mainImageUrl ?? ''}
+      />
+      <div className={styles.container}>
+        <img
+          src={mainImageUrl}
+          className={styles.mainImage}
+          alt={rocketName}
+          onClick={() => setIsOpen(true)}
+        />
+        <div className={styles.otherImagesContainer}>
+          {otherImageUrls.map((url) => (
+            <img
+              key={url}
+              src={url}
+              className={styles.otherImage}
+              alt={rocketName}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };

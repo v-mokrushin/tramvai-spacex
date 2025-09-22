@@ -11,14 +11,12 @@ export const WrappingButton: FC<WrappingButtonProps> = ({
   onClick,
   children,
   className,
-}) => {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={classNames(styles.button, className)}
-    >
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className={classNames(styles.button, className)}
+  >
+    {children}
+  </button>
+);
