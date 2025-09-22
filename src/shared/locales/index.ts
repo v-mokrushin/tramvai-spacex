@@ -5,7 +5,7 @@ export const generalLocales = {
   LAUNCHES: 'Launches',
 } as const;
 
-export const mainPageLocales = {
+export const homePageLocales = {
   SLOGAN: 'Making Humanity Multiplanetary',
   SUBTITLE:
     'Pioneering the future of space exploration and interplanetary life',

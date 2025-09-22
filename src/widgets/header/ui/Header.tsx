@@ -9,7 +9,7 @@ import { useIsBackground } from './useIsBackground';
 import { pages } from './config';
 
 export const Header = () => {
-  const navigate = useNavigation();
+  const { onNavigateHomePageHandler } = useNavigation();
 
   const isBackground = useIsBackground();
 
@@ -20,7 +20,7 @@ export const Header = () => {
         isBackground && styles.containerWithBackground
       )}
     >
-      <WrappingButton onClick={navigate.toMain}>
+      <WrappingButton onClick={onNavigateHomePageHandler}>
         <div
           style={getBackgroundImageStyle(imagePaths.HEADER_LOGO)}
           className={styles.logo}

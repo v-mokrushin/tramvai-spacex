@@ -1,19 +1,19 @@
 import { getBackgroundImageStyle } from '~shared/utils';
 import { animations, imagePaths } from '~shared/constants';
 import classNames from 'classnames';
-import { mainPageLocales } from '~shared/locales';
-import styles from './MainPage.module.css';
+import { homePageLocales } from '~shared/locales';
+import styles from './HomePage.module.css';
 
-export const MainPage = () => {
+export const HomePage = () => {
   return (
     <main className={styles.container}>
       <div
-        style={getBackgroundImageStyle(imagePaths.MAIN_PAGE_BACKGROUND)}
+        style={getBackgroundImageStyle(imagePaths.HOME_PAGE_BACKGROUND)}
         className={classNames(styles.background, animations.FADE_IN)}
       />
       <div className={styles.textIntroContainer}>
-        <span className={styles.slogan}>{mainPageLocales.SLOGAN}</span>
-        <span className={styles.subtitle}>{mainPageLocales.SUBTITLE}</span>
+        <span className={styles.slogan}>{homePageLocales.SLOGAN}</span>
+        <span className={styles.subtitle}>{homePageLocales.SUBTITLE}</span>
       </div>
     </main>
   );

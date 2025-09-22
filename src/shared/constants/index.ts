@@ -8,7 +8,7 @@ export const loadingStatuses = {
 } as const;
 
 export const routes = {
-  MAIN: '/',
+  HOME: '/',
   ROCKETS: '/rockets',
   ROCKET: '/rocket',
   LAUNCHES: '/launches',
@@ -16,7 +16,7 @@ export const routes = {
 
 export const imagePaths = {
   HEADER_LOGO: '/images/logo.png',
-  MAIN_PAGE_BACKGROUND: '/images/background.jpg',
+  HOME_PAGE_BACKGROUND: '/images/background.jpg',
 } as const;
 
 export const animations = {

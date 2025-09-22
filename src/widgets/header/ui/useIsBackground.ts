@@ -10,5 +10,5 @@ export const useIsBackground = () => {
 
   //   log.error(`useIsBackground ${getIsClient()}`, path);
 
-  return path !== routes.MAIN;
+  return path !== routes.HOME;
 };

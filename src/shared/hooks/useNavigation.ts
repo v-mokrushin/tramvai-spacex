@@ -5,8 +5,8 @@ import type { Rocket } from '~shared/types';
 export const useNavigation = () => {
   const navigate = useNavigate();
 
-  const toMain = () => {
-    navigate(routes.MAIN);
+  const onNavigateHomePageHandler = () => {
+    navigate(routes.HOME);
   };
 
   const toRockets = () => {
@@ -17,9 +17,5 @@ export const useNavigation = () => {
     navigate(`${routes.ROCKET}/${rocketId}`);
   };
 
-  const toLaunches = () => {
-    navigate(routes.LAUNCHES);
-  };
-
-  return { toMain, toRockets, toRocket, toLaunches };
+  return { onNavigateHomePageHandler, toRockets, toRocket };
 };

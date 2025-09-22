@@ -1,3 +1,3 @@
-import { MainPage } from '~pages/main';
+import { HomePage } from '~pages/home';
 
-export default MainPage;
+export default HomePage;
