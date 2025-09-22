@@ -2,18 +2,16 @@ import type { FC } from 'react';
 import classNames from 'classnames';
 import styles from './ImageViewer.module.css';
 import { Portal } from '../portal/Portal';
-
-type ImageViewerProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  imageUrl: string;
-};
+import type { ImageViewerProps } from './lib/types';
+import { useOverflowEffects } from './lib/useOverflowEffects';
 
 export const ImageViewer: FC<ImageViewerProps> = ({
   isOpen,
   onClose,
   imageUrl,
 }) => {
+  useOverflowEffects({ isOpen });
+
   return (
     <Portal>
       <div

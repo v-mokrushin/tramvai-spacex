@@ -5,8 +5,8 @@ import { useNavigation } from '~shared/hooks';
 import { WrappingButton } from '~shared/ui';
 import { Link } from '@tramvai/module-router';
 import styles from './Header.module.css';
-import { useIsBackground } from './useIsBackground';
-import { pages } from './config';
+import { useIsBackground } from '../lib/useIsBackground';
+import { pages } from '../lib/config';
 
 export const Header = () => {
   const { onNavigateHomePageHandler } = useNavigation();
