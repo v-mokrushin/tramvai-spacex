@@ -5,13 +5,13 @@ import styles from './Images.module.css';
 import { getImageUrls } from './utils';
 
 export const Images: FC<WithRocketProp> = ({ rocket }) => {
-  const { mainImageUrl, otherImageUrls, imagesCount } = getImageUrls(
+  const { mainImageUrl, otherImageUrls, isImages } = getImageUrls(
     rocket.flickr_images
   );
 
   const rocketName = rocket.name;
 
-  if (imagesCount === 0) {
+  if (!isImages) {
     return null;
   }
 

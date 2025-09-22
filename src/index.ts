@@ -22,7 +22,7 @@ createApp({
   modules: [
     CommonModule,
     SpaRouterModule,
-    RenderModule.forRoot({ useStrictMode: true }),
+    RenderModule.forRoot({ useStrictMode: false }),
     SeoModule,
     ServerModule,
     ErrorInterceptorModule,

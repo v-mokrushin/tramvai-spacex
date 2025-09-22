@@ -21,3 +21,16 @@
   background-position: center;
   margin-bottom: 5px;
 }
+
+.label {
+  color: rgba(248, 248, 250, 0.9);
+  font-size: 14px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.label:hover {
+  color: white;
+}

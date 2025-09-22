@@ -1,12 +1,12 @@
-import { imagePaths, routes } from '~shared/constants';
+import { imagePaths } from '~shared/constants';
 import { getBackgroundImageStyle } from '~shared/utils';
 import classNames from 'classnames';
-import { generalLocales } from '~shared/locales';
 import { useNavigation } from '~shared/hooks';
 import { WrappingButton } from '~shared/ui';
+import { Link } from '@tramvai/module-router';
 import styles from './Header.module.css';
-import { Section } from './section/Section';
 import { useIsBackground } from './useIsBackground';
+import { pages } from './config';
 
 export const Header = () => {
   const navigate = useNavigation();
@@ -26,9 +26,11 @@ export const Header = () => {
           className={styles.logo}
         />
       </WrappingButton>
-      <Section label={generalLocales.HOME} url={routes.MAIN} />
-      <Section label={generalLocales.ROCKETS} url={routes.ROCKETS} />
-      <Section label={generalLocales.LAUNCHES} url={routes.LAUNCHES} />
+      {pages.map(({ url, label }) => (
+        <Link key={url} url={url}>
+          <span className={styles.label}>{label}</span>
+        </Link>
+      ))}
     </header>
   );
 };

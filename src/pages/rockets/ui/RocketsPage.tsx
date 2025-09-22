@@ -29,12 +29,3 @@ export const RocketsPage = () => {
 };
 
 RocketsPage.actions = [rocketsModel.loadRockets];
-
-//   useEffect(() => {
-//     // localStorage.setItem(`RocketsPage ${Math.random()}`, 'render');
-
-//     return () => {
-//       //   resetRockets();
-//       //   localStorage.setItem(`RocketsPage ${Math.random()}`, 'unrender');
-//     };
-//   }, []);
