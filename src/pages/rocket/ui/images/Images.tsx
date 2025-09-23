@@ -1,18 +1,28 @@
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 import type { WithRocketProp } from '~shared/types';
 
-import { ImageViewer } from '~shared/ui';
+import {
+  ImageViewer,
+  useMultipleImageViewerState,
+  WrappingButton,
+} from '~shared/ui';
 import styles from './Images.module.css';
 import { getImageUrls } from './utils';
 
 export const Images: FC<WithRocketProp> = ({ rocket }) => {
-  const { mainImageUrl, otherImageUrls, isImages } = getImageUrls(
-    rocket.flickr_images
-  );
+  const { name, flickr_images: images } = rocket;
 
-  const rocketName = rocket.name;
+  const imageViewer = useMultipleImageViewerState();
 
-  const [isOpen, setIsOpen] = useState(true);
+  const { mainImageUrl, otherImageUrls, isImages } = getImageUrls(images);
+
+  const onClickMainImageHandler = () => {
+    imageViewer.onOpen(images, 0);
+  };
+
+  const onClickImageHandler = (index: number) => () => {
+    imageViewer.onOpen(images, index + 1);
+  };
 
   if (!isImages) {
     return null;
@@ -20,29 +30,24 @@ export const Images: FC<WithRocketProp> = ({ rocket }) => {
 
   return (
     <>
-      <ImageViewer
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        imageUrl={mainImageUrl ?? ''}
-      />
       <div className={styles.container}>
-        <img
-          src={mainImageUrl}
-          className={styles.mainImage}
-          alt={rocketName}
-          onClick={() => setIsOpen(true)}
-        />
+        <WrappingButton onClick={onClickMainImageHandler}>
+          <img src={mainImageUrl} className={styles.mainImage} alt={name} />
+        </WrappingButton>
         <div className={styles.otherImagesContainer}>
-          {otherImageUrls.map((url) => (
-            <img
-              key={url}
-              src={url}
-              className={styles.otherImage}
-              alt={rocketName}
-            />
+          {otherImageUrls.map((url, index) => (
+            <WrappingButton key={url} onClick={onClickImageHandler(index)}>
+              <img src={url} className={styles.otherImage} alt={name} />
+            </WrappingButton>
           ))}
         </div>
       </div>
+      <ImageViewer
+        isOpen={imageViewer.isOpen}
+        onClose={imageViewer.onClose}
+        imageUrls={imageViewer.imageUrls}
+        currentImageIndex={imageViewer.currentImageIndex}
+      />
     </>
   );
 };
