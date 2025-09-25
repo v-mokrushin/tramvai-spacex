@@ -16,6 +16,7 @@ import { ApiClientModule } from '~shared/api';
 import '~shared/styles/global.css';
 import '~shared/styles/animations.css';
 import { RocketsStoreModule } from '~entities/rockets';
+import { LaunchesStorModule } from '~entities/launches';
 
 createApp({
   name: 'spacex',
@@ -30,6 +31,7 @@ createApp({
     HttpClientModule,
     ApiClientModule,
     RocketsStoreModule,
+    LaunchesStorModule,
   ],
   providers: [
     {
