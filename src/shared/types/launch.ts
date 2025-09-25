@@ -1,28 +1,28 @@
-import type { Id } from './general';
+import type { Id, IdOrNull, Url } from './general';
 
 export type Launch = {
   id: Id;
   fairings: unknown | null;
   links: {
     patch: {
-      small: string;
-      large: string;
+      small: Url;
+      large: Url;
     };
     reddit: {
-      campaign: string | null;
-      launch: string | null;
-      media: string | null;
-      recovery: string | null;
+      campaign: Url | null;
+      launch: Url | null;
+      media: Url | null;
+      recovery: Url | null;
     };
     flickr: {
-      small: string[];
-      original: string[];
+      small: Url[];
+      original: Url[];
     };
-    presskit: string | null;
-    webcast: string | null;
-    youtube_id: string | null;
-    article: string | null;
-    wikipedia: string | null;
+    presskit: Url | null;
+    webcast: Url | null;
+    youtube_id: Url | null;
+    article: Url | null;
+    wikipedia: Url | null;
   };
   static_fire_date_utc: string | null;
   static_fire_date_unix: number | null;
@@ -47,7 +47,7 @@ export type Launch = {
   cores: Core[];
   auto_update: boolean;
   tbd: boolean;
-  launch_library_id: string | null;
+  launch_library_id: IdOrNull;
 };
 
 type CrewMember = {

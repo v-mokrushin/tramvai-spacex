@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ImageUrls } from './types';
 
-export const useMultipleImageViewerState = () => {
+export const useImageViewerState = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [imageUrls, setImageUrls] = useState<ImageUrls>([]);
@@ -22,5 +22,6 @@ export const useMultipleImageViewerState = () => {
     onClose,
     imageUrls,
     currentImageIndex,
+    setCurrentImageIndex,
   };
 };

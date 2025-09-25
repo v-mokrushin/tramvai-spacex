@@ -1,0 +1,12 @@
+.left {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+}
+
+.right {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: rotate(180deg);
+}

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './WrappingButton.module.css';
 
 type WrappingButtonProps = PropsWithChildren<{
-  onClick: () => void;
+  onClick: VoidFunction;
   className?: string;
 }>;
 

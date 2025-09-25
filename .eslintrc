@@ -10,6 +10,7 @@
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-restricted-types": "off",
     "@typescript-eslint/no-shadow": "off",
+    "react/jsx-handler-names": "off",
     "react/function-component-definition": [
       "error",
       {

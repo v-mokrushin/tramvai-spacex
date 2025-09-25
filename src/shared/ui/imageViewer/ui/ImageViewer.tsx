@@ -1,48 +1,42 @@
 import type { FC } from 'react';
 import classNames from 'classnames';
 import styles from './ImageViewer.module.css';
-import { Portal } from '../../portal/Portal';
+import { Portal } from '../../portal';
 import type { ImageViewerProps } from '../lib/types';
-import { useOverflowEffects } from '../lib/useOverflowEffects';
+import { useOverflowEvents } from '../lib/useOverflowEvents';
 import { useKeyboardEvents } from '../lib/useKeyboardEvents';
+import { CloseButton } from './closeButton/CloseButton';
+import { ArrowButton } from './arrowButton/ArrowButton';
+import { getImagesSwitchingAbility, getSwitchingHandlers } from '../lib/utils';
 
 export const ImageViewer: FC<ImageViewerProps> = ({
   isOpen,
   onClose,
-  imageUrl,
   imageUrls,
   currentImageIndex,
   onSetCurrentImageIndex,
 }) => {
-  const currentImageUrl = (() => {
-    if (imageUrl) {
-      return imageUrl;
-    }
+  const currentImageUrl = imageUrls[currentImageIndex];
 
-    if (imageUrls && currentImageIndex !== undefined) {
-      return imageUrls[currentImageIndex];
-    }
-  })();
+  const { isLeftSwitchingEnabled, isRightSwitchingEnabled } =
+    getImagesSwitchingAbility({ imageUrls, currentImageIndex });
 
-  const displayMode = (() => {
-    if (imageUrl) {
-      return 'single';
-    }
+  const { onSwitchLeftImageHandler, onSwitchRightImageHandler } =
+    getSwitchingHandlers({
+      currentImageIndex,
+      onSetCurrentImageIndex,
+      isLeftSwitchingEnabled,
+      isRightSwitchingEnabled,
+    });
 
-    if (imageUrls && currentImageIndex !== undefined) {
-      return 'multiple';
-    }
-  })();
+  useOverflowEvents(isOpen);
 
-  //   const {onSwitchLeftImage}
-
-  useOverflowEffects({ isOpen });
-
-  useKeyboardEvents({ isOpen, onClose });
-
-  if (!displayMode) {
-    return null;
-  }
+  useKeyboardEvents({
+    isOpen,
+    onClose,
+    onSwitchLeft: onSwitchLeftImageHandler,
+    onSwitchRight: onSwitchRightImageHandler,
+  });
 
   return (
     <Portal>
@@ -50,10 +44,13 @@ export const ImageViewer: FC<ImageViewerProps> = ({
         className={classNames(styles.container, isOpen && styles.containerOpen)}
       >
         <img alt="" src={currentImageUrl} className={styles.image} />
-        <button type="button" onClick={onClose} className={styles.closeButton}>
-          {/* <div className={styles.closeButton_icon}></div> */}
-          Закрыть
-        </button>
+        <CloseButton onClick={onClose} />
+        {isLeftSwitchingEnabled && (
+          <ArrowButton direction="left" onClick={onSwitchLeftImageHandler} />
+        )}
+        {isRightSwitchingEnabled && (
+          <ArrowButton direction="right" onClick={onSwitchRightImageHandler} />
+        )}
       </div>
     </Portal>
   );
