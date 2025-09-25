@@ -17,3 +17,5 @@ export const rocketPageLocales = {
   ENGINES: 'Engines',
   PAYLOAD_WEIGHTS: 'Payload weights',
 } as const;
+
+export const launchesPageLocales = {} as const;

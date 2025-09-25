@@ -1,8 +1,15 @@
 import { Module, provide } from '@tramvai/core';
 import { COMBINE_REDUCERS } from '@tramvai/module-common';
 import { launchesStore } from './model/store';
+import { useLaunches } from './lib/useLaunches';
+import { useLoadLaunchesDispatcher } from './actions/loadLaunches';
+import { usePagination } from './lib/usePagination';
 
-export const launchesModel = {};
+export const launchesModel = {
+  useLaunches,
+  useLoadLaunchesDispatcher,
+  usePagination,
+};
 
 @Module({
   providers: [
@@ -13,4 +20,4 @@ export const launchesModel = {};
     }),
   ],
 })
-export class LaunchesStorModule {}
+export class LaunchesStoreModule {}

@@ -2,6 +2,7 @@ import { createReducer } from '@tramvai/state';
 import { loadingStatuses } from '~shared/constants';
 import type { LaunchesState } from '../lib/types';
 import { launchesLoading, launchesLoadingDone } from './events';
+import { DEFAULT_LIMIT } from '../lib/config';
 
 const initialState: LaunchesState = {
   launches: [],
@@ -9,7 +10,7 @@ const initialState: LaunchesState = {
   pagination: {
     totalDocs: 0,
     offset: 0,
-    limit: 10,
+    limit: DEFAULT_LIMIT,
     totalPages: 0,
     page: 0,
     pagingCounter: 0,

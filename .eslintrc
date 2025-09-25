@@ -11,6 +11,7 @@
     "@typescript-eslint/no-restricted-types": "off",
     "@typescript-eslint/no-shadow": "off",
     "react/jsx-handler-names": "off",
+    "react-hooks/exhaustive-deps": "off",
     "react/function-component-definition": [
       "error",
       {
