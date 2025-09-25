@@ -11,7 +11,7 @@ import { DEFAULT_LIMIT } from '../lib/config';
 
 export const loadLaunchesAction = declareAction({
   name: 'loadLaunches',
-  async fn() {
+  async fn(page?: number) {
     this.dispatch(launchesLoading());
 
     try {
@@ -22,6 +22,7 @@ export const loadLaunchesAction = declareAction({
             body: {
               options: {
                 limit: DEFAULT_LIMIT,
+                page: page ?? 1,
               },
             },
           },

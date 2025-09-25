@@ -3,12 +3,19 @@ import type { PaginationProps } from '@mui/material';
 import { Pagination } from '@mui/material';
 import styles from './PaginationBar.module.css';
 
-const { usePagination } = launchesModel;
+const { usePagination, useLoadingStatus, useLoadLaunchesDispatcher } =
+  launchesModel;
 
 export const PaginationBar = () => {
-  const { page, totalDocs, totalPages } = usePagination();
+  const { page, totalPages } = usePagination();
 
-  const onChangePageHandler: PaginationProps['onChange'] = (_, page) => {};
+  const { isDone } = useLoadingStatus();
+
+  const loadLaunches = useLoadLaunchesDispatcher();
+
+  const onChangePageHandler: PaginationProps['onChange'] = (_, page) => {
+    loadLaunches(page);
+  };
 
   return (
     <div className={styles.container}>
@@ -17,6 +24,7 @@ export const PaginationBar = () => {
         count={totalPages}
         page={page}
         onChange={onChangePageHandler}
+        disabled={!isDone}
       />
     </div>
   );
