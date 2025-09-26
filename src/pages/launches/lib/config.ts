@@ -3,6 +3,9 @@ import { HeaderCell } from '../ui/table/cells/HeaderCell';
 import { NumberCell } from '../ui/table/cells/NumberCell';
 import { NameCell } from '../ui/table/cells/NameCell';
 import { DateCell } from '../ui/table/cells/DateCell';
+import { StatusCell } from '../ui/table/cells/StatusCell';
+import { DetailsCell } from '../ui/table/cells/DetailsCell';
+import { RocketCell } from '../ui/table/cells/RocketCell';
 
 export const tableColumns: Column[] = [
   {
@@ -25,5 +28,26 @@ export const tableColumns: Column[] = [
     width: 160,
     headerCell: HeaderCell,
     bodyCell: DateCell,
+  },
+  {
+    id: 'status',
+    headerTitle: 'Status',
+    width: 80,
+    headerCell: HeaderCell,
+    bodyCell: StatusCell,
+  },
+  // {
+  //   id: 'details',
+  //   headerTitle: 'Details',
+  //   width: 700,
+  //   headerCell: HeaderCell,
+  //   bodyCell: DetailsCell,
+  // },
+  {
+    id: 'rocket',
+    headerTitle: 'Details',
+    width: 200,
+    headerCell: HeaderCell,
+    bodyCell: RocketCell,
   },
 ];

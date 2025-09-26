@@ -28,8 +28,7 @@ export const loadLaunchesAction = declareAction({
                 },
               },
             },
-          },
-          { cache: false }
+          }
         );
 
       this.dispatch(launchesLoadingDone({ payload: response.payload }));

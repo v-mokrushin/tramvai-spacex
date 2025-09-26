@@ -1,16 +1,11 @@
-import { useEffect } from 'react';
-import { launchesModel } from '~entities/launches';
 import { generalLocales } from '~shared/locales';
 import { PageLayout } from '~shared/ui';
 import { Table } from './table/Table';
 import { PaginationBar } from './paginationBar/PaginationBar';
+import { useLoadData } from '../lib/useLoadData';
 
 export const LaunchesPage = () => {
-  const loadLaunches = launchesModel.useLoadLaunchesDispatcher();
-
-  useEffect(() => {
-    loadLaunches();
-  }, []);
+  useLoadData();
 
   return (
     <>
