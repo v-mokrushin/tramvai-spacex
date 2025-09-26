@@ -25,7 +25,7 @@ export const getFormattedNumberWithSpaces = (number: number) => {
   return roundedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
 
-export const logInStorage = (key: string) => {
+export const logInStorage = (key: string | number) => {
   if (!getIsClient()) return;
   localStorage.setItem(`${key} ${crypto.randomUUID().slice(0, 5)}`, 'render');
 };

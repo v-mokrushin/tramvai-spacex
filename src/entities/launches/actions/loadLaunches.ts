@@ -22,7 +22,10 @@ export const loadLaunchesAction = declareAction({
             body: {
               options: {
                 limit: DEFAULT_LIMIT,
-                page: page ?? 1,
+                page,
+                sort: {
+                  flight_number: 'asc',
+                },
               },
             },
           },
