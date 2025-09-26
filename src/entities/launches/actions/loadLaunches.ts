@@ -8,11 +8,16 @@ import {
 } from '../model/events';
 import type { LoadLaunchesResponsePayload } from '../lib/types';
 import { DEFAULT_LIMIT } from '../lib/config';
+import { launchesStore } from '../model/store';
 
 export const loadLaunchesAction = declareAction({
   name: 'loadLaunches',
   async fn(page?: number) {
     this.dispatch(launchesLoading());
+
+    const { pagination } = this.getState(launchesStore);
+
+    const requiredPage = page ?? pagination.page;
 
     try {
       const response =
@@ -22,7 +27,7 @@ export const loadLaunchesAction = declareAction({
             body: {
               options: {
                 limit: DEFAULT_LIMIT,
-                page,
+                page: requiredPage,
                 sort: {
                   flight_number: 'asc',
                 },

@@ -12,12 +12,18 @@ export const wait = (delay = 1500) =>
     setTimeout(resolve, delay);
   });
 
-export const getLoadingStatusDefinition = (loadingStatus: LoadingStatus) => ({
-  isIdle: loadingStatus === loadingStatuses.IDLE,
-  isPending: loadingStatus === loadingStatuses.PENDING,
-  isDone: loadingStatus === loadingStatuses.DONE,
-  isFailed: loadingStatus === loadingStatuses.FAILED,
-});
+export const getLoadingStatusDefinition = (loadingStatus: LoadingStatus) => {
+  const isDone = loadingStatus === loadingStatuses.DONE;
+  const isPending = loadingStatus === loadingStatuses.PENDING;
+
+  return {
+    isIdle: loadingStatus === loadingStatuses.IDLE,
+    isPending,
+    isDone,
+    isFailed: loadingStatus === loadingStatuses.FAILED,
+    isNotDoneAndNotPending: !isDone && !isPending,
+  };
+};
 
 export const getFormattedNumberWithSpaces = (number: number) => {
   const roundedAmount = Math.round(number);

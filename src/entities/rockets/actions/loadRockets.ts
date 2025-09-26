@@ -1,13 +1,14 @@
 import { declareAction } from '@tramvai/core';
 import { apiClientDependency } from '~shared/api';
 import type { Rocket } from '~shared/types';
+import { useActions } from '@tramvai/state';
 import {
   rocketsLoading,
   rocketsLoadingDone,
   rocketsLoadingFailed,
 } from '../model/events';
 
-export const loadRockets = declareAction({
+export const loadRocketsAction = declareAction({
   name: 'loadRockets',
   async fn() {
     this.dispatch(rocketsLoading());
@@ -22,3 +23,7 @@ export const loadRockets = declareAction({
   },
   deps: apiClientDependency,
 });
+
+export const useLoadRocketsDispatcher = () => {
+  return useActions(loadRocketsAction);
+};

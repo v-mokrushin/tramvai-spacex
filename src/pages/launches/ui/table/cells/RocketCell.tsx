@@ -1,14 +1,19 @@
 import type { FC } from 'react';
 import { Link } from '@tramvai/module-router';
 import { routes } from '~shared/constants';
+import { rocketsModel } from '~entities/rockets';
 import type { BodyCellProps } from '../../../lib/types';
 
 export const RocketCell: FC<BodyCellProps> = ({
   row: {
-    item: { rocket },
+    item: { rocket: rocketId },
   },
 }) => {
-  const rocketUrl = `${routes.ROCKET}/${rocket}`;
+  const rocket = rocketsModel.useRocketById(rocketId);
 
-  return <Link url={rocketUrl}>Rocket</Link>;
+  const rocketUrl = `${routes.ROCKET}/${rocketId}`;
+
+  const rocketName = rocket?.name ?? 'Rocket';
+
+  return <Link url={rocketUrl}>{rocketName}</Link>;
 };

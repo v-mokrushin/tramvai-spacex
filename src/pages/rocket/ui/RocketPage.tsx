@@ -31,4 +31,4 @@ export const RocketPage = () => {
   return null;
 };
 
-RocketPage.actions = [rocketsModel.loadRockets];
+RocketPage.actions = [rocketsModel.loadRocketsAction];

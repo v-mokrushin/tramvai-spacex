@@ -28,4 +28,4 @@ export const RocketsPage = () => {
   return null;
 };
 
-RocketsPage.actions = [rocketsModel.loadRockets];
+RocketsPage.actions = [rocketsModel.loadRocketsAction];

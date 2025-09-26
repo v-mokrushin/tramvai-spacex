@@ -4,7 +4,7 @@ import { NumberCell } from '../ui/table/cells/NumberCell';
 import { NameCell } from '../ui/table/cells/NameCell';
 import { DateCell } from '../ui/table/cells/DateCell';
 import { StatusCell } from '../ui/table/cells/StatusCell';
-import { DetailsCell } from '../ui/table/cells/DetailsCell';
+import { DetailsCell } from '../ui/table/cells/detailsCell/DetailsCell';
 import { RocketCell } from '../ui/table/cells/RocketCell';
 
 export const tableColumns: Column[] = [
@@ -36,18 +36,18 @@ export const tableColumns: Column[] = [
     headerCell: HeaderCell,
     bodyCell: StatusCell,
   },
-  // {
-  //   id: 'details',
-  //   headerTitle: 'Details',
-  //   width: 700,
-  //   headerCell: HeaderCell,
-  //   bodyCell: DetailsCell,
-  // },
   {
     id: 'rocket',
-    headerTitle: 'Details',
-    width: 200,
+    headerTitle: 'Rocket',
+    width: 100,
     headerCell: HeaderCell,
     bodyCell: RocketCell,
+  },
+  {
+    id: 'details',
+    headerTitle: 'Details',
+    width: 600,
+    headerCell: HeaderCell,
+    bodyCell: DetailsCell,
   },
 ];
