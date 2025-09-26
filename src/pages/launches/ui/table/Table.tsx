@@ -1,16 +1,14 @@
 import { launchesModel } from '~entities/launches';
-import { getColumns } from '../../lib/utils';
+import { tableColumns } from '../../lib/config';
 import styles from './Table.module.css';
 
 export const Table = () => {
   const data = launchesModel.useLaunches();
 
-  const columns = getColumns();
-
   return (
     <div className={styles.table}>
       <div className={styles.headerRow}>
-        {columns.map((column) => (
+        {tableColumns.map((column) => (
           <div
             key={column.id}
             className={styles.headerCell}
@@ -22,7 +20,7 @@ export const Table = () => {
       </div>
       {data.map((item, rowIndex) => (
         <div key={item.id} className={styles.bodyRow}>
-          {columns.map((column) => (
+          {tableColumns.map((column) => (
             <div
               key={column.id}
               className={styles.bodyCell}

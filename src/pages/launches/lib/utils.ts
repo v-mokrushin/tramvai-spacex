@@ -1,15 +1,14 @@
-import { HeaderCell } from '../ui/table/cells/HeaderCell';
-import { NumberCell } from '../ui/table/cells/NumberCell';
-import type { Column } from './types';
+import type { Launch } from '~shared/types';
 
-export const getColumns = (): Column[] => {
-  return [
-    {
-      id: 'number',
-      width: 40,
-      headerCell: HeaderCell,
-      bodyCell: NumberCell,
-      headerTitle: '№',
-    },
-  ];
+export const getFormattedDateUTC = (dateUtc: Launch['date_utc']) => {
+  const date = new Date(dateUtc);
+
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const hours = String(date.getUTCHours()).padStart(2, '0');
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+
+  return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
 };

@@ -7,20 +7,20 @@
   display: flex;
   height: 35px;
   box-sizing: border-box;
-  border-bottom: 2px solid rgb(148, 148, 148);
+  border-bottom: 2px solid rgb(175, 175, 175);
 }
 
 .headerCell {
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 5px;
+  box-sizing: border-box;
   font-weight: 600;
 }
 
 .bodyRow {
   display: flex;
-  height: 40px;
+  height: 45px;
   border-bottom: 1px solid rgb(177, 172, 172);
 }
 
