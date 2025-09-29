@@ -10,7 +10,11 @@ export const DetailsCell: FC<BodyCellProps> = ({
   },
 }) => {
   return (
-    <Tooltip title={details} classes={{ tooltip: styles.tooltip }}>
+    <Tooltip
+      enterDelay={350}
+      title={details}
+      classes={{ tooltip: styles.tooltip }}
+    >
       <span className={styles.label}>{details}</span>
     </Tooltip>
   );
