@@ -9,6 +9,7 @@ import {
   RENDER_SLOTS,
   ResourceType,
   ResourceSlot,
+  DEFAULT_ERROR_BOUNDARY_COMPONENT,
 } from '@tramvai/tokens-render';
 import { HeaderModule } from '~widgets/index';
 import { HttpClientModule } from '@tramvai/module-http-client';
@@ -17,6 +18,7 @@ import '~shared/styles/global.css';
 import '~shared/styles/animations.css';
 import { RocketsStoreModule } from '~entities/rockets';
 import { LaunchesStoreModule } from '~entities/launches';
+import { DefaultFallback } from '~widgets/defaultFallback';
 
 createApp({
   name: 'spacex',
@@ -44,5 +46,6 @@ createApp({
           '<meta name="viewport" content="width=device-width, initial-scale=1">',
       },
     },
+    { provide: DEFAULT_ERROR_BOUNDARY_COMPONENT, useValue: DefaultFallback },
   ],
 });
