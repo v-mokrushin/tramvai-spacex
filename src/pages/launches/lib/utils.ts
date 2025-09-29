@@ -1,4 +1,6 @@
 import type { Launch } from '~shared/types';
+import type { CSSProperties } from 'react';
+import type { Column } from './types';
 
 export const getFormattedDateUTC = (dateUtc: Launch['date_utc']) => {
   const date = new Date(dateUtc);
@@ -11,4 +13,8 @@ export const getFormattedDateUTC = (dateUtc: Launch['date_utc']) => {
   const seconds = String(date.getUTCSeconds()).padStart(2, '0');
 
   return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+};
+
+export const getCellWidthStyle = (width: Column['width']): CSSProperties => {
+  return width === 'grow' ? { flexGrow: 1 } : { width, flexShrink: 0 };
 };

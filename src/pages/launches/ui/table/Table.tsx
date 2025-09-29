@@ -2,6 +2,7 @@ import { launchesModel } from '~entities/launches';
 import { animations } from '~shared/constants';
 import { tableColumns } from '../../lib/config';
 import styles from './Table.module.css';
+import { getCellWidthStyle } from '../../lib/utils';
 
 export const Table = () => {
   const data = launchesModel.useLaunches();
@@ -15,7 +16,7 @@ export const Table = () => {
           <div
             key={column.id}
             className={styles.headerCell}
-            style={{ width: column.width }}
+            style={getCellWidthStyle(column.width)}
           >
             <column.headerCell column={{ headerTitle: column.headerTitle }} />
           </div>
@@ -28,7 +29,7 @@ export const Table = () => {
               <div
                 key={column.id}
                 className={styles.bodyCell}
-                style={{ width: column.width }}
+                style={getCellWidthStyle(column.width)}
               >
                 <column.bodyCell
                   row={{ index: rowIndex, item }}

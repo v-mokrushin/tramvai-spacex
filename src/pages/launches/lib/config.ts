@@ -47,7 +47,7 @@ export const tableColumns: Column[] = [
   {
     id: 'details',
     headerTitle: launchesPageLocales.DETAILS,
-    width: 800,
+    width: 'grow',
     headerCell: HeaderCell,
     bodyCell: DetailsCell,
   },

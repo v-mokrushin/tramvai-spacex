@@ -21,7 +21,7 @@ export type CellColumn = {
 
 export type Column = {
   id: string | number;
-  width: number;
+  width: number | 'grow';
   headerCell: FC<HeaderCellProps>;
   bodyCell: FC<BodyCellProps>;
   headerTitle?: string;
