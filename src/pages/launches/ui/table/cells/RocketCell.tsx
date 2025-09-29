@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import { Link } from '@tramvai/module-router';
-import { routes } from '~shared/constants';
 import { rocketsModel } from '~entities/rockets';
+import { getRocketPageUrl } from '~shared/utils';
+import { generalLocales } from '~shared/locales';
 import type { BodyCellProps } from '../../../lib/types';
 
 export const RocketCell: FC<BodyCellProps> = ({
@@ -11,9 +12,9 @@ export const RocketCell: FC<BodyCellProps> = ({
 }) => {
   const rocket = rocketsModel.useRocketById(rocketId);
 
-  const rocketUrl = `${routes.ROCKET}/${rocketId}`;
+  const rocketUrl = getRocketPageUrl(rocketId);
 
-  const rocketName = rocket?.name ?? 'Rocket';
+  const rocketName = rocket?.name ?? generalLocales.ROCKET;
 
   return <Link url={rocketUrl}>{rocketName}</Link>;
 };

@@ -1,11 +1,9 @@
-import { loadingStatuses } from '~shared/constants';
-import type { LoadingStatus } from '~shared/types';
+import { loadingStatuses, routes } from '~shared/constants';
+import type { Id, LoadingStatus } from '~shared/types';
 
 export const getBackgroundImageStyle = (url: string) => ({
   backgroundImage: `url(${url})`,
 });
-
-export const getIsClient = () => typeof window !== 'undefined';
 
 export const wait = (delay = 1500) =>
   new Promise((resolve) => {
@@ -30,6 +28,11 @@ export const getFormattedNumberWithSpaces = (number: number) => {
 
   return roundedAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
+
+export const getRocketPageUrl = (rocketId: Id) =>
+  `${routes.ROCKET}/${rocketId}`;
+
+export const getIsClient = () => typeof window !== 'undefined';
 
 export const logInStorage = (key: string | number) => {
   if (!getIsClient()) return;

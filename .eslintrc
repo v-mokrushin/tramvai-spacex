@@ -12,6 +12,7 @@
     "@typescript-eslint/no-shadow": "off",
     "react/jsx-handler-names": "off",
     "react-hooks/exhaustive-deps": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/function-component-definition": [
       "error",
       {
