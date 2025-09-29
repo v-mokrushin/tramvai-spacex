@@ -2,41 +2,51 @@ import type { Rocket } from '~shared/types';
 import { getFormattedNumberWithSpaces } from '~shared/utils';
 import type { SpecificationGroupData } from './types';
 
-const getGeneralSpecs = (rocket: Rocket): SpecificationGroupData => {
+const getGeneralSpecification = ({
+  name,
+  company,
+  country,
+  first_flight,
+  active,
+  success_rate_pct,
+  cost_per_launch,
+}: Rocket): SpecificationGroupData => {
   const metics: SpecificationGroupData = [
-    { key: 'name', label: 'Name', value: rocket.name },
+    { key: 'name', label: 'Name', value: name },
     {
       key: 'company',
       label: 'Company',
-      value: rocket.company,
+      value: company,
     },
     {
       key: 'country',
       label: 'Country',
-      value: rocket.country,
+      value: country,
     },
-    { key: 'firstFlight', label: 'First flight', value: rocket.first_flight },
+    { key: 'firstFlight', label: 'First flight', value: first_flight },
     {
       key: 'active',
       label: 'Activity',
-      value: rocket.active ? 'Active' : 'Inactive',
+      value: active ? 'Active' : 'Inactive',
     },
     {
-      key: 'successRate',
+      key: 'success_rate_pct',
       label: 'Success rate',
-      value: `${rocket.success_rate_pct} %`,
+      value: `${success_rate_pct} %`,
     },
     {
-      key: 'costPerLaunch',
+      key: 'cost_per_launch',
       label: 'Cost per launch',
-      value: `${getFormattedNumberWithSpaces(rocket.cost_per_launch)} $`,
+      value: `${getFormattedNumberWithSpaces(cost_per_launch)} $`,
     },
   ];
 
   return metics;
 };
 
-const getEnginesSpecs = ({ engines }: Rocket): SpecificationGroupData => {
+const getEnginesSpecification = ({
+  engines,
+}: Rocket): SpecificationGroupData => {
   const metics: SpecificationGroupData = [
     { key: 'number', label: 'Number', value: engines.number },
     { key: 'layout', label: 'Layout', value: engines.layout },
@@ -87,7 +97,7 @@ const getEnginesSpecs = ({ engines }: Rocket): SpecificationGroupData => {
   return metics.filter(({ value }) => Boolean(value));
 };
 
-const getDesignSpecs = ({
+const getDesignSpecification = ({
   mass,
   diameter,
   height,
@@ -125,7 +135,7 @@ const getDesignSpecs = ({
   return metics;
 };
 
-const getPayloadWeightsSpecs = ({
+const getPayloadWeightsSpecification = ({
   payload_weights,
 }: Rocket): SpecificationGroupData => {
   const metics: SpecificationGroupData = payload_weights.map(
@@ -140,13 +150,13 @@ const getPayloadWeightsSpecs = ({
 };
 
 export const getSpecifications = (rocket: Rocket) => {
-  const general = getGeneralSpecs(rocket);
+  const general = getGeneralSpecification(rocket);
 
-  const design = getDesignSpecs(rocket);
+  const design = getDesignSpecification(rocket);
 
-  const engines = getEnginesSpecs(rocket);
+  const engines = getEnginesSpecification(rocket);
 
-  const payloadWeights = getPayloadWeightsSpecs(rocket);
+  const payloadWeights = getPayloadWeightsSpecification(rocket);
 
   return { general, design, engines, payloadWeights };
 };

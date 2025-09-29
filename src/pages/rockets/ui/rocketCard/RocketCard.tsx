@@ -1,16 +1,12 @@
 import type { FC } from 'react';
-import type { Rocket } from '~shared/types';
+import type { WithRocketProp } from '~shared/types';
 
 import { Link } from '@tramvai/module-router';
 import { getRocketPageUrl } from '~shared/utils';
 import styles from './RocketCard.module.css';
 import { getImageUrl } from './utils';
 
-type RocketCardProps = {
-  rocket: Rocket;
-};
-
-export const RocketCard: FC<RocketCardProps> = ({ rocket }) => {
+export const RocketCard: FC<WithRocketProp> = ({ rocket }) => {
   const { id, name, flickr_images } = rocket;
 
   const imageSrc = getImageUrl(flickr_images);
