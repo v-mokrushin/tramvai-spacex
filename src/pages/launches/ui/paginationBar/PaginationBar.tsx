@@ -1,21 +1,14 @@
 import { launchesModel } from '~entities/launches';
-import type { PaginationProps } from '@mui/material';
 import { Pagination } from '@mui/material';
 import styles from './PaginationBar.module.css';
-
-const { usePagination, useLoadingStatus, useLoadLaunchesDispatcher } =
-  launchesModel;
+import { useOnChangeHandler } from './useOnChangeHandler';
 
 export const PaginationBar = () => {
-  const { page, totalPages } = usePagination();
+  const { page, totalPages } = launchesModel.usePagination();
 
-  const { isDone } = useLoadingStatus();
+  const { isDone } = launchesModel.useLoadingStatus();
 
-  const loadLaunches = useLoadLaunchesDispatcher();
-
-  const onChangePageHandler: PaginationProps['onChange'] = (_, page) => {
-    loadLaunches(page);
-  };
+  const onChangePageHandler = useOnChangeHandler();
 
   return (
     <div className={styles.container}>
