@@ -18,4 +18,9 @@ export const rocketPageLocales = {
   PAYLOAD_WEIGHTS: 'Payload weights',
 } as const;
 
-export const launchesPageLocales = {} as const;
+export const launchesPageLocales = {
+  MISSION_NAME: 'Mission name',
+  DATE_UTC: 'Date UTC',
+  STATUS: 'Status',
+  DETAILS: 'Details',
+} as const;

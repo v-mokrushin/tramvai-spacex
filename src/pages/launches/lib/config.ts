@@ -1,3 +1,4 @@
+import { generalLocales, launchesPageLocales } from '~shared/locales';
 import type { Column } from './types';
 import { HeaderCell } from '../ui/table/cells/HeaderCell';
 import { NumberCell } from '../ui/table/cells/NumberCell';
@@ -17,35 +18,35 @@ export const tableColumns: Column[] = [
   },
   {
     id: 'name',
-    headerTitle: 'Mission name',
+    headerTitle: launchesPageLocales.MISSION_NAME,
     width: 250,
     headerCell: HeaderCell,
     bodyCell: NameCell,
   },
   {
     id: 'date',
-    headerTitle: 'Date UTC',
+    headerTitle: launchesPageLocales.DATE_UTC,
     width: 180,
     headerCell: HeaderCell,
     bodyCell: DateCell,
   },
   {
     id: 'status',
-    headerTitle: 'Status',
+    headerTitle: launchesPageLocales.STATUS,
     width: 100,
     headerCell: HeaderCell,
     bodyCell: StatusCell,
   },
   {
     id: 'rocket',
-    headerTitle: 'Rocket',
+    headerTitle: generalLocales.ROCKET,
     width: 110,
     headerCell: HeaderCell,
     bodyCell: RocketCell,
   },
   {
     id: 'details',
-    headerTitle: 'Details',
+    headerTitle: launchesPageLocales.DETAILS,
     width: 800,
     headerCell: HeaderCell,
     bodyCell: DetailsCell,
