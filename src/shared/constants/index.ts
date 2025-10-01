@@ -17,6 +17,7 @@ export const routes = {
 export const imagePaths = {
   HEADER_LOGO: '/images/logo.png',
   HOME_PAGE_BACKGROUND: '/images/background.jpg',
+  NOT_FOUND_PAGE_BACKGROUND: '/images/not-found.jpg',
 } as const;
 
 export const animations = {

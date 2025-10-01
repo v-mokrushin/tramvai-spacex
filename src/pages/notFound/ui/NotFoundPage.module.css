@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
 }
 
-.textIntroContainer {
+.titleContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,21 +17,11 @@
   transform: translateX(-50%);
   color: white;
 
-  .slogan {
-    font-size: 72px;
+  .title {
+    font-size: 62px;
     font-weight: 700;
-    line-height: 85px;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 5px;
-  }
-
-  .subtitle {
-    font-size: 27px;
-    font-weight: 400;
-    text-align: center;
-    width: 380px;
-    line-height: 32px;
-    letter-spacing: 1px;
   }
 }

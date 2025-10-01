@@ -20,11 +20,20 @@ import { RocketsStoreModule } from '~entities/rockets';
 import { LaunchesStoreModule } from '~entities/launches';
 import { DefaultFallback } from '~widgets/defaultFallback';
 
+const notFoundRoute = {
+  name: 'notFound',
+  path: '*',
+  config: {
+    pageComponent: '@/pages/notFound/index',
+    httpStatus: 404,
+  },
+};
+
 createApp({
   name: 'spacex',
   modules: [
     CommonModule,
-    SpaRouterModule,
+    SpaRouterModule.forRoot([notFoundRoute]),
     RenderModule.forRoot({ useStrictMode: false }),
     SeoModule,
     ServerModule,
