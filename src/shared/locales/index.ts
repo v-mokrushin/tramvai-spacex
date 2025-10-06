@@ -4,6 +4,7 @@ export const generalLocales = {
   ROCKETS: 'Rockets',
   LAUNCHES: 'Launches',
   PAGE_NOT_FOUND: 'Page not found',
+  LOADING_FAILED: 'Loading failed',
 } as const;
 
 export const homePageLocales = {
@@ -17,6 +18,7 @@ export const rocketPageLocales = {
   DESIGN: 'Design',
   ENGINES: 'Engines',
   PAYLOAD_WEIGHTS: 'Payload weights',
+  UNKNOWN_ROCKET_ID: 'Unknown rocket id',
 } as const;
 
 export const launchesPageLocales = {

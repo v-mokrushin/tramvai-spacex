@@ -1,6 +1,7 @@
 import { useRoute } from '@tramvai/module-router';
 import { rocketsModel } from '~entities/rockets';
 import { CenteredErrorMessage, PageLayout, PageLoader } from '~shared/ui';
+import { generalLocales, rocketPageLocales } from '~shared/locales';
 import { Specifications } from './specifications/Specifications';
 import { Images } from './images/Images';
 import styles from './RocketPage.module.css';
@@ -17,14 +18,14 @@ export const RocketPage = () => {
   }
 
   if (isFailed) {
-    return <CenteredErrorMessage title="Loading failed" />;
+    return <CenteredErrorMessage title={generalLocales.LOADING_FAILED} />;
   }
 
   if (isDone && !rocket) {
     return (
       <CenteredErrorMessage
-        title="Loading failed"
-        description="Unknown rocket id"
+        title="Error"
+        description={rocketPageLocales.UNKNOWN_ROCKET_ID}
       />
     );
   }

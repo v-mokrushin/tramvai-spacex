@@ -1,25 +1,28 @@
+import type { CSSProperties } from 'react';
 import { loadingStatuses, routes } from '~shared/constants';
 import type { Id, LoadingStatus } from '~shared/types';
 
-export const getBackgroundImageStyle = (url: string) => ({
+export const getBackgroundImageStyle = (url: string): CSSProperties => ({
   backgroundImage: `url(${url})`,
 });
 
-export const wait = (delay = 1500) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, delay);
-  });
-
 export const getLoadingStatusDefinition = (loadingStatus: LoadingStatus) => {
+  const isIdle = loadingStatus === loadingStatuses.IDLE;
+
   const isDone = loadingStatus === loadingStatuses.DONE;
+
   const isPending = loadingStatus === loadingStatuses.PENDING;
 
+  const isFailed = loadingStatus === loadingStatuses.FAILED;
+
+  const isNotDoneAndNotPending = !isDone && !isPending;
+
   return {
-    isIdle: loadingStatus === loadingStatuses.IDLE,
+    isIdle,
     isPending,
     isDone,
-    isFailed: loadingStatus === loadingStatuses.FAILED,
-    isNotDoneAndNotPending: !isDone && !isPending,
+    isFailed,
+    isNotDoneAndNotPending,
   };
 };
 
@@ -33,6 +36,11 @@ export const getRocketPageUrl = (rocketId: Id) =>
   `${routes.ROCKET}/${rocketId}`;
 
 export const getIsClient = () => typeof window !== 'undefined';
+
+export const wait = (delay = 1500) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, delay);
+  });
 
 export const logInStorage = (key: string | number) => {
   if (!getIsClient()) return;
