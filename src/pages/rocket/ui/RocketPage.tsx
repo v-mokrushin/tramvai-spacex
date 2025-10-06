@@ -24,7 +24,7 @@ export const RocketPage = () => {
   if (isDone && !rocket) {
     return (
       <CenteredErrorMessage
-        title="Error"
+        title={generalLocales.ERROR}
         description={rocketPageLocales.UNKNOWN_ROCKET_ID}
       />
     );
