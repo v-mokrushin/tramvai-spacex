@@ -19,9 +19,10 @@ import '~shared/styles/animations.css';
 import { RocketsStoreModule } from '~entities/rockets';
 import { LaunchesStoreModule } from '~entities/launches';
 import { DefaultFallback } from '~widgets/defaultFallback';
+import { NOT_FOUND_PAGE_NAME } from '~shared/constants';
 
 const notFoundRoute = {
-  name: 'notFound',
+  name: NOT_FOUND_PAGE_NAME,
   path: '*',
   config: {
     pageComponent: '@/pages/notFound/index',

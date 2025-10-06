@@ -1,14 +1,8 @@
 import { useRoute } from '@tramvai/module-router';
-import { routes } from '~shared/constants';
-// import createLogger from '@tinkoff/logger';
-// import { getIsClient } from '~shared/utils';
-
-// const log = createLogger('this:header');
+import { NOT_FOUND_PAGE_NAME, routes } from '~shared/constants';
 
 export const useIsBackground = () => {
-  const { path } = useRoute();
+  const { path, name } = useRoute();
 
-  //   log.error(`useIsBackground ${getIsClient()}`, path);
-
-  return path !== routes.HOME;
+  return path !== routes.HOME && name !== NOT_FOUND_PAGE_NAME;
 };

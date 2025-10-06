@@ -3,6 +3,7 @@ export const generalLocales = {
   ROCKET: 'Rocket',
   ROCKETS: 'Rockets',
   LAUNCHES: 'Launches',
+  PAGE_NOT_FOUND: 'Page not found',
 } as const;
 
 export const homePageLocales = {

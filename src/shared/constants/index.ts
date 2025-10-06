@@ -23,3 +23,5 @@ export const imagePaths = {
 export const animations = {
   FADE_IN: styles.fadeIn,
 } as const;
+
+export const NOT_FOUND_PAGE_NAME = 'notFound';

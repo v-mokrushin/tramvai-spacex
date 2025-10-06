@@ -1,5 +1,6 @@
 import { animations, imagePaths } from '~shared/constants';
 import { getBackgroundImageStyle } from '~shared/utils';
+import { generalLocales } from '~shared/locales';
 import styles from './NotFoundPage.module.css';
 
 export const NotFoundPage = () => {
@@ -10,7 +11,7 @@ export const NotFoundPage = () => {
         className={styles.background}
       />
       <div className={styles.titleContainer}>
-        <span className={styles.title}>PAGE NOT FOUND</span>
+        <span className={styles.title}>{generalLocales.PAGE_NOT_FOUND}</span>
       </div>
     </main>
   );
