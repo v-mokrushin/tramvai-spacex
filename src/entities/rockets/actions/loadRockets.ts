@@ -24,7 +24,7 @@ export const loadRocketsAction = declareAction({
     this.dispatch(rocketsLoading());
 
     try {
-      const response = await this.deps.apiClient.get<Rocket[]>('rockets');
+      const response = await this.deps.apiClient.get<Rocket[]>('rocke');
 
       this.dispatch(rocketsLoadingDone({ items: response.payload }));
     } catch (_) {

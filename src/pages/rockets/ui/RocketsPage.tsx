@@ -1,6 +1,7 @@
 import { rocketsModel } from '~entities/rockets';
-import { CenteredErrorMessage, PageLayout, PageLoader } from '~shared/ui';
+import { PageLayout, PageLoader } from '~shared/ui';
 import { generalLocales } from '~shared/locales';
+import { RocketsLoadingError } from '~features/rocketsLoadingError';
 import styles from './RocketsPage.module.css';
 import { RocketCard } from './rocketCard/RocketCard';
 
@@ -14,7 +15,7 @@ export const RocketsPage = () => {
   }
 
   if (isFailed) {
-    return <CenteredErrorMessage title={generalLocales.LOADING_FAILED} />;
+    return <RocketsLoadingError />;
   }
 
   if (isDone) {
