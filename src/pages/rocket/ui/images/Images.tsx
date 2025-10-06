@@ -1,18 +1,14 @@
 import { type FC } from 'react';
 import type { WithRocketProp } from '~shared/types';
 
-import {
-  ImageViewer,
-  useMultipleImageViewerState,
-  WrappingButton,
-} from '~shared/ui';
+import { ImageViewer, useImageViewerState, WrappingButton } from '~shared/ui';
 import styles from './Images.module.css';
 import { getImageUrls } from './utils';
 
 export const Images: FC<WithRocketProp> = ({ rocket }) => {
   const { name, flickr_images: images } = rocket;
 
-  const imageViewer = useMultipleImageViewerState();
+  const imageViewer = useImageViewerState();
 
   const { mainImageUrl, otherImageUrls, isImages } = getImageUrls(images);
 

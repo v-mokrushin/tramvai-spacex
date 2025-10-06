@@ -1,6 +1,6 @@
 import { useRoute } from '@tramvai/module-router';
 import { rocketsModel } from '~entities/rockets';
-import { PageLayout, PageLoader } from '~shared/ui';
+import { CenteredErrorMessage, PageLayout, PageLoader } from '~shared/ui';
 import { Specifications } from './specifications/Specifications';
 import { Images } from './images/Images';
 import styles from './RocketPage.module.css';
@@ -10,10 +10,23 @@ export const RocketPage = () => {
 
   const rocket = rocketsModel.useRocketById(id);
 
-  const { isDone, isPending } = rocketsModel.useLoadingStatus();
+  const { isDone, isPending, isFailed } = rocketsModel.useLoadingStatus();
 
   if (isPending) {
     return <PageLoader />;
+  }
+
+  if (isFailed) {
+    return <CenteredErrorMessage title="Loading failed" />;
+  }
+
+  if (isDone && !rocket) {
+    return (
+      <CenteredErrorMessage
+        title="Loading failed"
+        description="Unknown rocket id"
+      />
+    );
   }
 
   if (isDone && rocket) {
