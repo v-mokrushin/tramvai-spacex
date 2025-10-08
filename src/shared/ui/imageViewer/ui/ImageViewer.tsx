@@ -19,7 +19,10 @@ export const ImageViewer: FC<ImageViewerProps> = ({
   const currentImageUrl = imageUrls[currentImageIndex];
 
   const { isLeftSwitchingEnabled, isRightSwitchingEnabled } =
-    getImagesSwitchingAbility({ imageUrls, currentImageIndex });
+    getImagesSwitchingAbility({
+      imagesCount: imageUrls.length,
+      currentImageIndex,
+    });
 
   const { onSwitchLeftImageHandler, onSwitchRightImageHandler } =
     getSwitchingHandlers({
@@ -34,8 +37,8 @@ export const ImageViewer: FC<ImageViewerProps> = ({
   useKeyboardEvents({
     isOpen,
     onClose,
-    onSwitchLeft: onSwitchLeftImageHandler,
-    onSwitchRight: onSwitchRightImageHandler,
+    onSwitchLeftImageHandler,
+    onSwitchRightImageHandler,
   });
 
   return (

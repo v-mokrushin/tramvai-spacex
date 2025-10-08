@@ -2,15 +2,15 @@ import type { ImageViewerProps } from './types';
 
 type GetImagesSwitchingAbilityParams = Pick<
   ImageViewerProps,
-  'imageUrls' | 'currentImageIndex'
->;
+  'currentImageIndex'
+> & {
+  imagesCount: number;
+};
 
 export const getImagesSwitchingAbility = ({
-  imageUrls,
+  imagesCount,
   currentImageIndex,
 }: GetImagesSwitchingAbilityParams) => {
-  const imagesCount = imageUrls.length;
-
   const imagesMaxIndex = imagesCount - 1;
 
   const isLeftSwitchingEnabled = currentImageIndex > 0;

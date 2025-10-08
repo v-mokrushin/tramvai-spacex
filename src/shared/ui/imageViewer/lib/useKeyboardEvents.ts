@@ -1,36 +1,40 @@
 import { useEffect } from 'react';
-import type { ImageViewerProps } from './types';
+import { logInStorage } from '~shared/utils';
+import type { ImageViewerProps, SwitchingHandlers } from './types';
+import { eventKeys } from './config';
 
-const EVENT_TYPE = 'keydown';
+const KEYDOWN_EVENT_TYPE = 'keydown';
 
-type UseKeyboardEventsParams = Pick<ImageViewerProps, 'isOpen' | 'onClose'> & {
-  onSwitchLeft: VoidFunction;
-  onSwitchRight: VoidFunction;
-};
+type UseKeyboardEventsParams = Pick<ImageViewerProps, 'isOpen' | 'onClose'> &
+  SwitchingHandlers;
 
 export const useKeyboardEvents = ({
   isOpen,
   onClose,
-  onSwitchLeft,
-  onSwitchRight,
+  onSwitchLeftImageHandler,
+  onSwitchRightImageHandler,
 }: UseKeyboardEventsParams) => {
   useEffect(() => {
+    if (!isOpen) return;
+
+    logInStorage('useKeyboardEvents');
+
     const eventHandler = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === eventKeys.ESCAPE) {
         onClose();
       }
 
-      if (event.key === 'ArrowLeft') {
-        onSwitchLeft();
+      if (event.key === eventKeys.ARROW_LEFT) {
+        onSwitchLeftImageHandler();
       }
 
-      if (event.key === 'ArrowRight') {
-        onSwitchRight();
+      if (event.key === eventKeys.ARROW_RIGHT) {
+        onSwitchRightImageHandler();
       }
     };
 
-    document.addEventListener(EVENT_TYPE, eventHandler);
+    document.addEventListener(KEYDOWN_EVENT_TYPE, eventHandler);
 
-    return () => document.removeEventListener(EVENT_TYPE, eventHandler);
-  }, [isOpen, onClose, onSwitchLeft, onSwitchRight]);
+    return () => document.removeEventListener(KEYDOWN_EVENT_TYPE, eventHandler);
+  }, [isOpen, onClose, onSwitchLeftImageHandler, onSwitchRightImageHandler]);
 };

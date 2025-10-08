@@ -25,3 +25,5 @@ export const useImageViewerState = () => {
     setCurrentImageIndex,
   };
 };
+
+export type UseImageViewerStateReturn = ReturnType<typeof useImageViewerState>;

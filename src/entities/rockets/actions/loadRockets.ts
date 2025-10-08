@@ -17,14 +17,12 @@ export const loadRocketsAction = declareAction({
 
     const { isDone } = getLoadingStatusDefinition(loadingStatus);
 
-    if (isDone) {
-      return;
-    }
+    if (isDone) return;
 
     this.dispatch(rocketsLoading());
 
     try {
-      const response = await this.deps.apiClient.get<Rocket[]>('rocke');
+      const response = await this.deps.apiClient.get<Rocket[]>('rockets');
 
       this.dispatch(rocketsLoadingDone({ items: response.payload }));
     } catch (_) {
