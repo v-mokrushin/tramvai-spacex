@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { logInStorage } from '~shared/utils';
+import { useEffect, useRef } from 'react';
 import type { ImageViewerProps, SwitchingHandlers } from './types';
 import { eventKeys } from './config';
 
@@ -14,12 +13,27 @@ export const useKeyboardEvents = ({
   onSwitchLeftImageHandler,
   onSwitchRightImageHandler,
 }: UseKeyboardEventsParams) => {
+  const handlers = useRef({
+    onClose,
+    onSwitchLeftImageHandler,
+    onSwitchRightImageHandler,
+  });
+
+  useEffect(() => {
+    handlers.current = {
+      onClose,
+      onSwitchLeftImageHandler,
+      onSwitchRightImageHandler,
+    };
+  });
+
   useEffect(() => {
     if (!isOpen) return;
 
-    logInStorage('useKeyboardEvents');
-
     const eventHandler = (event: KeyboardEvent) => {
+      const { onClose, onSwitchLeftImageHandler, onSwitchRightImageHandler } =
+        handlers.current;
+
       if (event.key === eventKeys.ESCAPE) {
         onClose();
       }
@@ -36,5 +50,5 @@ export const useKeyboardEvents = ({
     document.addEventListener(KEYDOWN_EVENT_TYPE, eventHandler);
 
     return () => document.removeEventListener(KEYDOWN_EVENT_TYPE, eventHandler);
-  }, [isOpen, onClose, onSwitchLeftImageHandler, onSwitchRightImageHandler]);
+  }, [isOpen]);
 };

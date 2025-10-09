@@ -26,7 +26,6 @@ export const ImageViewer: FC<ImageViewerProps> = ({
 
   const { onSwitchLeftImageHandler, onSwitchRightImageHandler } =
     getSwitchingHandlers({
-      currentImageIndex,
       onSetCurrentImageIndex,
       isLeftSwitchingEnabled,
       isRightSwitchingEnabled,

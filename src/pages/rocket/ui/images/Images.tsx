@@ -43,7 +43,7 @@ export const Images: FC<WithRocketProp> = ({ rocket }) => {
         onClose={imageViewer.onClose}
         imageUrls={imageViewer.imageUrls}
         currentImageIndex={imageViewer.currentImageIndex}
-        onSetCurrentImageIndex={imageViewer.setCurrentImageIndex}
+        onSetCurrentImageIndex={imageViewer.onSetCurrentImageIndex}
       />
     </>
   );

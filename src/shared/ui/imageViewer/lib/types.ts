@@ -6,7 +6,7 @@ export type ImageViewerProps = {
   onClose: VoidFunction;
   imageUrls: ImageUrls;
   currentImageIndex: number;
-  onSetCurrentImageIndex: UseImageViewerStateReturn['setCurrentImageIndex'];
+  onSetCurrentImageIndex: UseImageViewerStateReturn['onSetCurrentImageIndex'];
 };
 
 export type ImageUrls = string[];

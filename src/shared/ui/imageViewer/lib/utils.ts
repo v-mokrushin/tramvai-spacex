@@ -24,23 +24,22 @@ export const getImagesSwitchingAbility = ({
 };
 
 type GetSwitchingHandlersParams = ReturnType<typeof getImagesSwitchingAbility> &
-  Pick<ImageViewerProps, 'onSetCurrentImageIndex' | 'currentImageIndex'>;
+  Pick<ImageViewerProps, 'onSetCurrentImageIndex'>;
 
 export const getSwitchingHandlers = ({
-  currentImageIndex,
   onSetCurrentImageIndex,
   isLeftSwitchingEnabled,
   isRightSwitchingEnabled,
 }: GetSwitchingHandlersParams) => {
   const onSwitchLeftImageHandler = () => {
     if (isLeftSwitchingEnabled) {
-      onSetCurrentImageIndex(currentImageIndex - 1);
+      onSetCurrentImageIndex((currentImageIndex) => currentImageIndex - 1);
     }
   };
 
   const onSwitchRightImageHandler = () => {
     if (isRightSwitchingEnabled) {
-      onSetCurrentImageIndex(currentImageIndex + 1);
+      onSetCurrentImageIndex((currentImageIndex) => currentImageIndex + 1);
     }
   };
 
