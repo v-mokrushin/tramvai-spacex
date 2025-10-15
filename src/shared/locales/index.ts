@@ -6,6 +6,7 @@ export const generalLocales = {
   PAGE_NOT_FOUND: 'Page not found',
   LOADING_FAILED: 'Loading failed',
   ERROR: 'Error',
+  RUNTIME_ERROR: 'Runtime error',
 } as const;
 
 export const homePageLocales = {
