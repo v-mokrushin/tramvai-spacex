@@ -1,6 +1,6 @@
 import { createReducer } from '@tramvai/state';
 import { loadingStatuses } from '~shared/constants';
-import type { RocketsState } from './types';
+import type { RocketsState } from '../lib/types';
 import {
   resetRockets,
   rocketsLoading,
@@ -21,7 +21,6 @@ export const rocketsStore = createReducer('rockets', initialState)
   }))
   .on(rocketsLoadingDone, (state, { items }) => {
     const rocketsMap = items.reduce<RocketsState['rocketsMap']>((map, item) => {
-      // eslint-disable-next-line no-param-reassign
       map[item.id] = item;
       return map;
     }, {});

@@ -1,4 +1,3 @@
-import { useRoute } from '@tramvai/module-router';
 import { rocketsModel } from '~entities/rockets';
 import { CenteredErrorMessage, PageLayout, PageLoader } from '~shared/ui';
 import { generalLocales, rocketPageLocales } from '~shared/locales';
@@ -6,13 +5,16 @@ import { RocketsLoadingError } from '~features/rocketsLoadingError';
 import { Specifications } from './specifications/Specifications';
 import { Images } from './images/Images';
 import styles from './RocketPage.module.css';
+import { useCurrentRocket } from '../lib/useCurrentRocket';
 
 export const RocketPage = () => {
-  const { id } = useRoute().params;
-
-  const rocket = rocketsModel.useRocketById(id);
+  const rocket = useCurrentRocket();
 
   const { isDone, isPending, isFailed } = rocketsModel.useLoadingStatus();
+
+  const isRocketObjectError = isDone && !rocket;
+
+  const isDoneAndRocketOk = isDone && rocket;
 
   if (isPending) {
     return <PageLoader />;
@@ -22,7 +24,7 @@ export const RocketPage = () => {
     return <RocketsLoadingError />;
   }
 
-  if (isDone && !rocket) {
+  if (isRocketObjectError) {
     return (
       <CenteredErrorMessage
         title={generalLocales.ERROR}
@@ -31,7 +33,7 @@ export const RocketPage = () => {
     );
   }
 
-  if (isDone && rocket) {
+  if (isDoneAndRocketOk) {
     return (
       <PageLayout title={rocket.name}>
         <div className={styles.container}>

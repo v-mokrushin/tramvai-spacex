@@ -13,6 +13,7 @@
     "react/jsx-handler-names": "off",
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/anchor-is-valid": "off",
+    "no-param-reassign": "off",
     "react/function-component-definition": [
       "error",
       {
